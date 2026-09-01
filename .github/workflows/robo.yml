@@ -1,66 +1,67 @@
-name: Robo PS5
-
+name: Robo de Precos V8
 on:
   workflow_dispatch:
-
+    inputs:
+      produto:
+        description: "Produto que deseja pesquisar"
+        required: true
+        type: string
+        default: "PS5 Slim Digital 1TB"
+      preco_maximo:
+        description: "Preco maximo em reais"
+        required: true
+        type: string
+        default: "3500"
   schedule:
     - cron: "0 */2 * * *"
-
 permissions:
   contents: write
   pages: write
   id-token: write
-
 jobs:
-
   pesquisar:
-
     runs-on: ubuntu-latest
-
     environment:
       name: github-pages
-
     steps:
-
       - name: Baixar projeto
-        uses: actions/checkout@v4
-
+        uses: actions/checkout@v6
       - name: Configurar Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
-
       - name: Instalar bibliotecas
         run: |
           python -m pip install --upgrade pip
-          python -m pip install requests beautifulsoup4
-
-      - name: Executar robô
+          python -m pip install \
+            requests \
+            beautifulsoup4
+      - name: Verificar bibliotecas
         run: |
+          python -c "import requests; print('Requests OK')"
+          python -c "from bs4 import BeautifulSoup; print('BeautifulSoup OK')"
+      - name: Executar robo
+        env:
+          PRODUTO: ${{ inputs.produto || 'PS5 Slim Digital 1TB' }}
+          PRECO_MAXIMO: ${{ inputs.preco_maximo || '3500' }}
+        run: |
+          echo "Produto pesquisado: $PRODUTO"
+          echo "Preco maximo: $PRECO_MAXIMO"
           python robo.py
-
-      - name: Atualizar histórico
+      - name: Salvar resultado no repositorio
         run: |
-          python atualizar_historico.py
-
-      - name: Salvar alterações
-        run: |
-          git config user.name "Robo PS5"
+          git config user.name "Robo de Precos V8"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
           git add resultado.json historico.json
-
-          git diff --cached --quiet || git commit -m "Atualizar preços PS5"
-
+          git diff --cached --quiet || \
+            git commit -m "Atualizar pesquisa de precos"
           git push
-
-      - name: Preparar GitHub Pages
+      - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
-
       - name: Preparar painel
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: .
-
       - name: Publicar painel
+        id: deployment
         uses: actions/deploy-pages@v4
