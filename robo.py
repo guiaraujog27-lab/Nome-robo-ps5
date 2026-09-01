@@ -1,138 +1,264 @@
 import requests
 import json
+import re
 from datetime import datetime
+from bs4 import BeautifulSoup
 
-# ==========================================
-# CONFIGURAÇÃO
-# ==========================================
 
 PRODUTO = "PS5 Slim Digital 1TB"
 PRECO_MAXIMO = 3500.00
 
-API = "https://api.mercadolibre.com/sites/MLB/search"
 
-PARAMETROS = {
-    "q": PRODUTO,
-    "sort": "price_asc",
-    "limit": 20
+LOJAS = [
+
+    {
+        "nome": "KaBuM!",
+        "url": "https://www.kabum.com.br/produto/875818/console-sony-playstation-5-slim-edicao-digital-ssd-1tb-controle-sem-fio-dualsense-2-jogos-digitais-1000038894"
+    },
+
+    {
+        "nome": "Pichau",
+        "url": "https://www.pichau.com.br/console-sony-playstation-5-slim-edicao-digital-ssd-1tb-com-controle-sem-fio-dualsense-com-2-jogos-digitais-branco-1000038894"
+    }
+]
+
+
+HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 "
+        "like Mac OS X) AppleWebKit/605.1.15 "
+        "Version/17.0 Mobile/15E148 Safari/604.1"
+    ),
+    "Accept-Language": "pt-BR,pt;q=0.9"
 }
 
-# ==========================================
-# BUSCAR MERCADO LIVRE
-# ==========================================
 
-def buscar():
+def converter_preco(valor):
 
-    headers = {
-        "User-Agent": "Mozilla/5.0"
-    }
+    if valor is None:
+        return None
+
+    if isinstance(valor, (int, float)):
+        return float(valor)
+
+    texto = str(valor)
+
+    texto = texto.replace("R$", "")
+    texto = texto.replace("\xa0", " ")
+    texto = texto.strip()
+
+    # Exemplo: 3.799,99
+    if "," in texto:
+        texto = texto.replace(".", "")
+        texto = texto.replace(",", ".")
+
+    # Remove caracteres restantes
+    texto = re.sub(
+        r"[^0-9.]",
+        "",
+        texto
+    )
+
+    try:
+        return float(texto)
+    except:
+        return None
+
+
+def procurar_jsonld(soup):
+
+    scripts = soup.find_all(
+        "script",
+        type="application/ld+json"
+    )
+
+    for script in scripts:
+
+        try:
+
+            dados = json.loads(
+                script.string or script.get_text()
+            )
+
+            lista = dados if isinstance(
+                dados,
+                list
+            ) else [dados]
+
+            for item in lista:
+
+                if not isinstance(item, dict):
+                    continue
+
+                if item.get("@type") == "Product":
+
+                    return item
+
+                if "Product" in str(
+                    item.get("@type", "")
+                ):
+
+                    return item
+
+        except Exception:
+            continue
+
+    return None
+
+
+def consultar_loja(loja):
+
+    print()
+    print("🏪 Consultando:", loja["nome"])
 
     try:
 
         resposta = requests.get(
-            API,
-            params=PARAMETROS,
-            headers=headers,
+            loja["url"],
+            headers=HEADERS,
             timeout=30
         )
 
-        print("Status da API:", resposta.status_code)
+        print(
+            "Status:",
+            resposta.status_code
+        )
 
         if resposta.status_code != 200:
 
-            print(
-                "⚠️ Mercado Livre recusou a consulta."
+            return {
+                "loja": loja["nome"],
+                "status": "bloqueada",
+                "erro": f"HTTP {resposta.status_code}"
+            }
+
+        soup = BeautifulSoup(
+            resposta.text,
+            "html.parser"
+        )
+
+        produto = procurar_jsonld(soup)
+
+        preco = None
+        titulo = None
+
+        if produto:
+
+            titulo = produto.get(
+                "name"
             )
 
-            print(
-                "O robô continuará funcionando."
+            oferta = produto.get(
+                "offers",
+                {}
             )
 
-            return []
+            if isinstance(oferta, list):
+                oferta = oferta[0]
 
-        return resposta.json()
+            if isinstance(oferta, dict):
+
+                preco = converter_preco(
+                    oferta.get("price")
+                )
+
+        # Segunda tentativa:
+        # procurar valores monetários no HTML
+
+        if preco is None:
+
+            texto = soup.get_text(
+                " ",
+                strip=True
+            )
+
+            encontrados = re.findall(
+                r"R\$\s*[\d\.]+,\d{2}",
+                texto
+            )
+
+            valores = []
+
+            for valor in encontrados:
+
+                numero = converter_preco(
+                    valor
+                )
+
+                if numero:
+
+                    # Evita valores absurdos
+                    if 1000 <= numero <= 10000:
+                        valores.append(numero)
+
+            if valores:
+
+                preco = min(valores)
+
+        resultado = {
+
+            "loja": loja["nome"],
+
+            "titulo": titulo
+                or PRODUTO,
+
+            "preco": preco,
+
+            "url": loja["url"],
+
+            "status": (
+                "encontrado"
+                if preco is not None
+                else "preco_nao_encontrado"
+            )
+
+        }
+
+        return resultado
 
     except Exception as erro:
 
         print(
-            "⚠️ Erro ao consultar Mercado Livre:"
+            "Erro:",
+            erro
         )
 
-        print(erro)
+        return {
 
-        return {}
+            "loja": loja["nome"],
+
+            "status": "erro",
+
+            "erro": str(erro)
+
+        }
 
 
-# ==========================================
-# FILTRAR RESULTADOS
-# ==========================================
+def comparar(ofertas):
 
-def filtrar(dados):
+    validas = [
 
-    ofertas = []
+        oferta
+        for oferta in ofertas
 
-    for item in dados.get(
-        "results",
-        []
-    ):
+        if oferta.get("preco") is not None
 
-        titulo = item.get(
-            "title",
-            ""
-        )
+    ]
 
-        preco = item.get(
-            "price"
-        )
-
-        link = item.get(
-            "permalink"
-        )
-
-        if not preco or not link:
-            continue
-
-        titulo_lower = titulo.lower()
-
-        if "ps5" not in titulo_lower:
-            continue
-
-        ofertas.append({
-
-            "titulo": titulo,
-
-            "preco": float(preco),
-
-            "link": link,
-
-            "vendedor":
-                item.get(
-                    "seller",
-                    {}
-                ).get(
-                    "nickname",
-                    "Não informado"
-                ),
-
-            "condicao":
-                item.get(
-                    "condition",
-                    "Não informado"
-                )
-
-        })
-
-    return sorted(
-        ofertas,
+    validas.sort(
         key=lambda x: x["preco"]
     )
 
+    return validas
 
-# ==========================================
-# SALVAR RESULTADO
-# ==========================================
 
-def salvar(ofertas):
+def salvar(ofertas, validas):
+
+    menor = (
+        validas[0]["preco"]
+        if validas
+        else None
+    )
 
     resultado = {
 
@@ -143,11 +269,23 @@ def salvar(ofertas):
 
         "atualizado":
             datetime.now().strftime(
-                "%d/%m/%Y %H:%M"
+                "%d/%m/%Y %H:%M:%S"
+            ),
+
+        "menor_preco":
+            menor,
+
+        "oferta_encontrada":
+            (
+                menor is not None
+                and menor <= PRECO_MAXIMO
             ),
 
         "ofertas":
-            ofertas[:10]
+            ofertas,
+
+        "ranking":
+            validas
 
     }
 
@@ -167,97 +305,92 @@ def salvar(ofertas):
     return resultado
 
 
-# ==========================================
-# PROGRAMA PRINCIPAL
-# ==========================================
-
 def main():
 
     print()
     print("==============================")
-    print("🎮 ROBÔ DE PREÇOS PS5")
+    print("🤖 ROBÔ PS5 V4")
     print("==============================")
-
     print(
-        "🔎 Procurando:",
+        "🎮",
         PRODUTO
     )
-
-    dados = buscar()
-
-    if not dados:
-
-        print()
-        print(
-            "❌ Não foi possível consultar "
-            "o Mercado Livre agora."
-        )
-
-        salvar([])
-
-        return
-
-    ofertas = filtrar(dados)
-
-    salvar(ofertas)
-
-    print()
-
-    if not ofertas:
-
-        print(
-            "❌ Nenhuma oferta encontrada."
-        )
-
-        return
-
     print(
-        "🏆 OFERTAS ENCONTRADAS:"
+        "🎯 Limite: R$",
+        f"{PRECO_MAXIMO:.2f}"
+    )
+
+    ofertas = []
+
+    for loja in LOJAS:
+
+        resultado = consultar_loja(
+            loja
+        )
+
+        ofertas.append(
+            resultado
+        )
+
+    validas = comparar(
+        ofertas
+    )
+
+    resultado = salvar(
+        ofertas,
+        validas
     )
 
     print()
+    print("==============================")
+    print("🏆 RESULTADO")
+    print("==============================")
 
-    for numero, oferta in enumerate(
-        ofertas[:10],
-        start=1
-    ):
-
-        print(
-            f"{numero}. "
-            f"{oferta['titulo']}"
-        )
+    if not validas:
 
         print(
-            f"💰 R$ "
-            f"{oferta['preco']:.2f}"
+            "❌ Nenhum preço foi encontrado."
         )
 
-        print(
-            f"👤 "
-            f"{oferta['vendedor']}"
-        )
+    else:
 
-        print(
-            f"📦 "
-            f"{oferta['condicao']}"
-        )
-
-        print(
-            f"🔗 "
-            f"{oferta['link']}"
-        )
-
-        if oferta["preco"] <= PRECO_MAXIMO:
+        for posicao, oferta in enumerate(
+            validas,
+            start=1
+        ):
 
             print(
-                "🔥 ABAIXO DO SEU LIMITE!"
+                f"{posicao}º "
+                f"{oferta['loja']}: "
+                f"R$ {oferta['preco']:.2f}"
             )
 
-        print(
-            "----------------------------"
-        )
+        menor = validas[0]["preco"]
+
+        print()
+
+        if menor <= PRECO_MAXIMO:
+
+            print(
+                "🔥🔥 OFERTA ENCONTRADA!"
+            )
+
+            print(
+                f"💰 R$ {menor:.2f}"
+            )
+
+        else:
+
+            print(
+                "😴 Ainda está acima "
+                "do seu limite."
+            )
+
+    print()
+    print(
+        "📄 resultado.json criado."
+    )
 
 
 if __name__ == "__main__":
-
     main()
