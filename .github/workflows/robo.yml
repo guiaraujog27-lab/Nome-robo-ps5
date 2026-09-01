@@ -8,11 +8,9 @@ on:
 
 jobs:
   pesquisar:
-
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Baixar projeto
         uses: actions/checkout@v4
 
@@ -21,11 +19,18 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Instalar biblioteca
-        run: pip install requests
+      - name: Instalar bibliotecas
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install requests beautifulsoup4
+
+      - name: Verificar BeautifulSoup
+        run: |
+          python -c "from bs4 import BeautifulSoup; print('BeautifulSoup OK')"
 
       - name: Executar robô
-        run: python robo.py
+        run: |
+          python robo.py
 
       - name: Salvar resultado
         uses: actions/upload-artifact@v4
