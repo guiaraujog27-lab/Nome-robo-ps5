@@ -1,80 +1,40 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
-
-<meta name="theme-color"
-      content="#111827">
-
-<title>Robô PS5 V6.1</title>
+<title>Robô PS5</title>
 
 <style>
-
-* {
-    box-sizing: border-box;
-}
-
 body {
-    margin: 0;
-    font-family: -apple-system,
-                 BlinkMacSystemFont,
-                 "Segoe UI",
-                 Arial,
-                 sans-serif;
-
+    font-family: Arial, sans-serif;
     background: #f3f4f6;
+    margin: 0;
+    padding: 20px;
     color: #111827;
 }
 
-header {
-    background: #111827;
-    color: white;
-    padding: 25px 18px;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 26px;
-}
-
-header p {
-    margin: 7px 0 0;
-    color: #d1d5db;
-}
-
 .container {
-    max-width: 900px;
+    max-width: 700px;
     margin: auto;
-    padding: 16px;
 }
 
 .card {
     background: white;
-    border-radius: 18px;
     padding: 20px;
-    margin-bottom: 16px;
-
-    box-shadow:
-        0 4px 18px rgba(0,0,0,.07);
+    border-radius: 18px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,.08);
 }
 
-h2 {
+h1 {
     margin-top: 0;
 }
 
-.produto {
-    font-size: 19px;
-    font-weight: 700;
-}
-
 .preco {
-    font-size: 42px;
-    font-weight: 800;
-    margin: 10px 0;
+    font-size: 40px;
+    font-weight: bold;
 }
 
 .verde {
@@ -85,88 +45,21 @@ h2 {
     color: #dc2626;
 }
 
-.cinza {
-    color: #6b7280;
-}
-
-.info {
-    color: #6b7280;
-    margin: 7px 0;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap: 12px;
-}
-
-.stat {
-    background: #f9fafb;
-    border-radius: 14px;
-    padding: 15px;
-}
-
-.stat-title {
-    color: #6b7280;
-    font-size: 13px;
-}
-
-.stat-value {
-    font-size: 20px;
-    font-weight: 700;
-    margin-top: 5px;
-}
-
-.badge {
-    display: inline-block;
-    padding: 8px 13px;
-    border-radius: 20px;
-    font-weight: 700;
-    font-size: 13px;
-}
-
-.badge-green {
-    background: #dcfce7;
-    color: #166534;
-}
-
-.badge-red {
-    background: #fee2e2;
-    color: #991b1b;
-}
-
-.badge-gray {
-    background: #e5e7eb;
-    color: #374151;
-}
-
-.oferta {
-    border: 2px solid #22c55e;
-}
-
-.botao {
-    display: inline-block;
-    margin-top: 12px;
-    padding: 13px 18px;
-
+button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 10px;
     background: #111827;
     color: white;
-
-    text-decoration: none;
-
-    border-radius: 11px;
-
-    font-weight: 600;
+    font-size: 16px;
 }
 
-.botao:active {
-    transform: scale(.98);
-}
-
-.table-container {
-    overflow-x: auto;
+.erro {
+    background: #fee2e2;
+    color: #991b1b;
+    padding: 15px;
+    border-radius: 10px;
+    word-break: break-word;
 }
 
 table {
@@ -174,411 +67,220 @@ table {
     border-collapse: collapse;
 }
 
-th,
-td {
-    padding: 12px 8px;
+td, th {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
     text-align: left;
-
-    border-bottom:
-        1px solid #e5e7eb;
 }
-
-th {
-    color: #6b7280;
-    font-size: 13px;
-}
-
-.loading {
-    text-align: center;
-    padding: 45px 10px;
-    color: #6b7280;
-}
-
-.erro {
-    background: #fee2e2;
-    color: #991b1b;
-    padding: 16px;
-    border-radius: 12px;
-}
-
-canvas {
-    width: 100%;
-    height: 260px;
-}
-
-.footer {
-    text-align: center;
-    color: #9ca3af;
-    font-size: 13px;
-    padding: 20px;
-}
-
-@media(max-width:600px) {
-
-    .grid {
-        grid-template-columns: 1fr;
-    }
-
-    .preco {
-        font-size: 36px;
-    }
-
-}
-
 </style>
 
 </head>
 
-
 <body>
-
-
-<header>
-
-<h1>🎮 Robô de Preços PS5</h1>
-
-<p>Monitoramento automático • V6.1</p>
-
-</header>
-
 
 <div class="container">
 
+<div class="card">
 
-<div id="loading"
-     class="loading">
+<h1>🎮 Robô de Preços PS5</h1>
 
-⏳ Carregando preços...
-
-</div>
-
-
-<div id="erro"
-     style="display:none;">
-</div>
-
-
-<div id="painel"
-     style="display:none;">
-
-
-<!-- PRODUTO -->
-
-<div id="cardProduto"
-     class="card">
-
-
-<div class="produto"
-     id="produto">
-
-PS5 Slim Digital 1TB
+<p>Monitoramento automático • V6.2</p>
 
 </div>
 
+<div id="status" class="card">
 
-<p class="info">
-
-🏆 Menor preço encontrado
-
-</p>
-
-
-<div id="preco"
-     class="preco">
-
-—
+⏳ Testando conexão com resultado.json...
 
 </div>
 
+<div id="painel" style="display:none;">
 
-<div id="loja"
-     class="info">
+<div class="card">
 
-🏪 —
+<h2 id="produto"></h2>
 
-</div>
+<p>🏆 Menor preço encontrado</p>
 
+<div id="preco" class="preco"></div>
 
-<div id="status">
+<p id="loja"></p>
 
-</div>
+<p id="atualizado"></p>
 
-
-<a id="linkOferta"
-   class="botao"
+<a id="link"
    target="_blank"
-   rel="noopener"
    style="display:none;">
 
 🛒 Ver oferta
 
 </a>
 
-
 </div>
-
-
-<!-- RESUMO -->
 
 <div class="card">
 
-<h2>📊 Resumo</h2>
-
-
-<div class="grid">
-
-
-<div class="stat">
-
-<div class="stat-title">
-
-🎯 Limite definido
-
-</div>
-
-<div id="limite"
-     class="stat-value">
-
-R$ 3.500,00
-
-</div>
-
-</div>
-
-
-<div class="stat">
-
-<div class="stat-title">
-
-💰 Economia
-
-</div>
-
-<div id="economia"
-     class="stat-value">
-
-—
-
-</div>
-
-</div>
-
-
-<div class="stat">
-
-<div class="stat-title">
-
-🏷️ Ofertas encontradas
-
-</div>
-
-<div id="quantidade"
-     class="stat-value">
-
-—
-
-</div>
-
-</div>
-
-
-<div class="stat">
-
-<div class="stat-title">
-
-🔥 Oferta
-
-</div>
-
-<div id="oferta"
-     class="stat-value">
-
-—
-
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
-
-<!-- LOJAS -->
-
-<div class="card">
-
-<h2>🏪 Comparação de lojas</h2>
-
-
-<div class="table-container">
-
+<h2>🏪 Lojas</h2>
 
 <table>
 
 <thead>
 
 <tr>
-
 <th>Loja</th>
-
 <th>Preço</th>
-
 <th>Status</th>
-
 </tr>
 
 </thead>
 
-
-<tbody id="tabelaOfertas">
-
-</tbody>
-
+<tbody id="lojas"></tbody>
 
 </table>
 
-
 </div>
-
-</div>
-
-
-<!-- HISTÓRICO -->
 
 <div class="card">
 
-<h2>📈 Histórico</h2>
+<h2>🎯 Limite</h2>
 
+<p id="limite"></p>
 
-<canvas id="grafico">
-
-</canvas>
-
-
-<div id="semHistorico"
-     class="info"
-     style="display:none;">
-
-Ainda não existem dados suficientes
-para montar o gráfico.
-
-</div>
-
-
-</div>
-
-
-<!-- ÚLTIMAS CONSULTAS -->
-
-<div class="card">
-
-<h2>🕐 Últimas consultas</h2>
-
-
-<div class="table-container">
-
-
-<table>
-
-<thead>
-
-<tr>
-
-<th>Data</th>
-
-<th>Loja</th>
-
-<th>Preço</th>
-
-</tr>
-
-</thead>
-
-
-<tbody id="tabelaHistorico">
-
-</tbody>
-
-
-</table>
-
+<p id="oferta"></p>
 
 </div>
 
 </div>
-
-
-<!-- INFORMAÇÕES -->
-
-<div class="card">
-
-<h2>🤖 Robô</h2>
-
-
-<p id="atualizado"
-   class="info">
-
-🕐 Última atualização: —
-
-</p>
-
-
-<p class="info">
-
-⏰ O robô realiza consultas
-automaticamente.
-
-</p>
-
-
-<a href=""
-   class="botao"
-   onclick="location.reload(); return false;">
-
-🔄 Atualizar painel
-
-</a>
-
-
-</div>
-
-
-</div>
-
-
-<div class="footer">
-
-Robô PS5 V6.1<br>
-
-Comparador automático de preços
-
-</div>
-
 
 </div>
 
 
 <script>
 
+async function iniciar() {
 
-/* ===================================
-   ARQUIVOS
-=================================== */
+    const status =
+        document.getElementById("status");
 
+    try {
 
-const RESULTADO =
-    "./resultado.json";
-
-
-const HISTORICO =
-    "./historico.json";
+        status.innerHTML =
+            "⏳ Conectando ao resultado.json...";
 
 
-/* ===================================
-   FORMATAR DINHEIRO
-=================================== */
+        const url =
+            "./resultado.json?t=" +
+            Date.now();
+
+
+        console.log(
+            "Tentando carregar:",
+            url
+        );
+
+
+        const resposta =
+            await fetch(url);
+
+
+        console.log(
+            "Status HTTP:",
+            resposta.status
+        );
+
+
+        if (!resposta.ok) {
+
+            throw new Error(
+                "HTTP " +
+                resposta.status +
+                " ao acessar resultado.json"
+            );
+
+        }
+
+
+        const texto =
+            await resposta.text();
+
+
+        console.log(
+            "JSON recebido:",
+            texto
+        );
+
+
+        let dados;
+
+
+        try {
+
+            dados =
+                JSON.parse(texto);
+
+        } catch (erroJSON) {
+
+            throw new Error(
+                "resultado.json não é um JSON válido. " +
+                erroJSON.message
+            );
+
+        }
+
+
+        console.log(
+            "Dados:",
+            dados
+        );
+
+
+        mostrar(dados);
+
+
+        status.style.display =
+            "none";
+
+
+        document.getElementById(
+            "painel"
+        ).style.display =
+            "block";
+
+
+    } catch (erro) {
+
+        console.error(
+            erro
+        );
+
+
+        status.innerHTML = `
+
+            <div class="erro">
+
+                ❌ ERRO NO PAINEL
+
+                <br><br>
+
+                <strong>
+                    ${erro.message}
+                </strong>
+
+                <br><br>
+
+                Arquivo testado:
+
+                <br>
+
+                ./resultado.json
+
+            </div>
+
+        `;
+
+    }
+
+}
 
 
 function dinheiro(valor) {
@@ -594,955 +296,200 @@ function dinheiro(valor) {
 }
 
 
-/* ===================================
-   ESCAPAR TEXTO
-=================================== */
-
-
-function textoSeguro(valor) {
-
-    return String(valor ?? "")
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-
-}
-
-
-/* ===================================
-   CARREGAR JSON
-=================================== */
-
-
-async function carregarJSON(arquivo) {
-
-    const resposta =
-        await fetch(
-            arquivo +
-            "?cache=" +
-            Date.now()
-        );
-
-
-    if (!resposta.ok) {
-
-        throw new Error(
-            "Arquivo não encontrado: " +
-            arquivo
-        );
-
-    }
-
-
-    return await resposta.json();
-
-}
-
-
-/* ===================================
-   MOSTRAR ERRO
-=================================== */
-
-
-function mostrarErro(mensagem) {
+function mostrar(dados) {
 
     document.getElementById(
-        "loading"
-    ).style.display = "none";
+        "produto"
+    ).textContent =
+        dados.produto ||
+        "PS5 Slim Digital 1TB";
 
 
-    const erro =
-        document.getElementById(
-            "erro"
+    const limite =
+        Number(
+            dados.preco_maximo ||
+            3500
         );
 
 
-    erro.style.display = "block";
+    let ofertas =
+        Array.isArray(dados.ofertas)
+        ? dados.ofertas
+        : [];
 
 
-    erro.innerHTML = `
-
-        <div class="erro">
-
-            ❌ Não foi possível carregar
-            os dados do robô.
-
-            <br><br>
-
-            ${textoSeguro(mensagem)}
-
-            <br><br>
-
-            Tente atualizar a página.
-
-        </div>
-
-    `;
-
-}
-
-
-/* ===================================
-   DESENHAR GRÁFICO
-=================================== */
-
-
-function desenharGrafico(dados) {
-
-    const canvas =
-        document.getElementById(
-            "grafico"
-        );
-
-
-    const sem =
-        document.getElementById(
-            "semHistorico"
-        );
-
-
-    if (
-        !Array.isArray(dados) ||
-        dados.length < 2
-    ) {
-
-        canvas.style.display =
-            "none";
-
-        sem.style.display =
-            "block";
-
-        return;
-
-    }
-
-
-    sem.style.display =
-        "none";
-
-
-    canvas.style.display =
-        "block";
-
-
-    const largura =
-        canvas.clientWidth || 600;
-
-
-    const altura =
-        260;
-
-
-    const dpr =
-        window.devicePixelRatio || 1;
-
-
-    canvas.width =
-        largura * dpr;
-
-
-    canvas.height =
-        altura * dpr;
-
-
-    const ctx =
-        canvas.getContext("2d");
-
-
-    ctx.scale(dpr, dpr);
-
-
-    const registros =
-        dados
-            .filter(
-                item =>
-                    item &&
-                    item.preco != null
-            )
-            .slice(-20);
-
-
-    if (registros.length < 2) {
-
-        canvas.style.display =
-            "none";
-
-        sem.style.display =
-            "block";
-
-        return;
-
-    }
-
-
-    const precos =
-        registros.map(
+    let validas =
+        ofertas.filter(
             item =>
-                Number(item.preco)
+                item.preco !== undefined &&
+                item.preco !== null
         );
+
+
+    validas.sort(
+        (a,b) =>
+            Number(a.preco) -
+            Number(b.preco)
+    );
 
 
     const menor =
-        Math.min(...precos);
-
-
-    const maior =
-        Math.max(...precos);
-
-
-    const margemX =
-        35;
-
-
-    const margemY =
-        25;
-
-
-    const larguraGrafico =
-        largura -
-        margemX -
-        10;
-
-
-    const alturaGrafico =
-        altura -
-        margemY -
-        30;
-
-
-    const intervalo =
-        maior - menor || 1;
-
-
-    /* eixo */
-
-    ctx.beginPath();
-
-    ctx.moveTo(
-        margemX,
-        margemY
-    );
-
-    ctx.lineTo(
-        margemX,
-        altura - 30
-    );
-
-    ctx.lineTo(
-        largura - 10,
-        altura - 30
-    );
-
-    ctx.stroke();
-
-
-    /* linha */
-
-    ctx.beginPath();
-
-
-    registros.forEach(
-        (item, index) => {
-
-            const x =
-                margemX +
-                (
-                    index /
-                    (registros.length - 1)
-                ) *
-                larguraGrafico;
-
-
-            const y =
-                (
-                    altura - 30
-                )
-                -
-                (
-                    (
-                        Number(item.preco)
-                        -
-                        menor
-                    )
-                    /
-                    intervalo
-                )
-                *
-                alturaGrafico;
-
-
-            if (index === 0) {
-
-                ctx.moveTo(
-                    x,
-                    y
-                );
-
-            } else {
-
-                ctx.lineTo(
-                    x,
-                    y
-                );
-
-            }
-
-        }
-    );
-
-
-    ctx.stroke();
-
-
-    /* pontos */
-
-
-    registros.forEach(
-        (item, index) => {
-
-            const x =
-                margemX +
-                (
-                    index /
-                    (registros.length - 1)
-                ) *
-                larguraGrafico;
-
-
-            const y =
-                (
-                    altura - 30
-                )
-                -
-                (
-                    (
-                        Number(item.preco)
-                        -
-                        menor
-                    )
-                    /
-                    intervalo
-                )
-                *
-                alturaGrafico;
-
-
-            ctx.beginPath();
-
-            ctx.arc(
-                x,
-                y,
-                4,
-                0,
-                Math.PI * 2
-            );
-
-            ctx.fill();
-
-        }
-    );
-
-
-    ctx.font =
-        "12px Arial";
-
-
-    ctx.fillText(
-        dinheiro(maior),
-        5,
-        15
-    );
-
-
-    ctx.fillText(
-        dinheiro(menor),
-        5,
-        altura - 5
-    );
-
-}
-
-
-/* ===================================
-   CARREGAR HISTÓRICO
-=================================== */
-
-
-async function carregarHistorico() {
-
-    try {
-
-        const historico =
-            await carregarJSON(
-                HISTORICO
-            );
-
-
-        if (
-            !Array.isArray(historico)
-        ) {
-
-            return [];
-
-        }
-
-
-        desenharGrafico(
-            historico
+        dados.menor_preco !== undefined
+        ? Number(dados.menor_preco)
+        : (
+            validas.length
+            ? Number(validas[0].preco)
+            : null
         );
 
 
-        const tabela =
-            document.getElementById(
-                "tabelaHistorico"
-            );
-
-
-        tabela.innerHTML = "";
-
-
-        historico
-            .slice()
-            .reverse()
-            .slice(0, 20)
-            .forEach(
-                item => {
-
-                    const linha =
-                        document.createElement(
-                            "tr"
-                        );
-
-
-                    linha.innerHTML = `
-
-                        <td>
-                            ${textoSeguro(
-                                item.data ||
-                                item.atualizado ||
-                                "-"
-                            )}
-                        </td>
-
-                        <td>
-                            ${textoSeguro(
-                                item.loja ||
-                                "-"
-                            )}
-                        </td>
-
-                        <td>
-                            <strong>
-                                ${dinheiro(
-                                    item.preco
-                                )}
-                            </strong>
-                        </td>
-
-                    `;
-
-
-                    tabela.appendChild(
-                        linha
-                    );
-
-                }
-            );
-
-
-        return historico;
-
-    } catch {
-
+    const preco =
         document.getElementById(
-            "semHistorico"
-        ).style.display =
-            "block";
+            "preco"
+        );
 
 
-        return [];
+    if (menor !== null) {
+
+        preco.textContent =
+            dinheiro(menor);
+
+
+        preco.className =
+            "preco " +
+            (
+                menor <= limite
+                ? "verde"
+                : "vermelho"
+            );
+
+    } else {
+
+        preco.textContent =
+            "Não encontrado";
 
     }
 
-}
 
-
-/* ===================================
-   CARREGAR RESULTADO
-=================================== */
-
-
-async function carregar() {
-
-    try {
-
-        document.getElementById(
-            "loading"
-        ).style.display =
-            "block";
-
-
-        const resultado =
-            await carregarJSON(
-                RESULTADO
-            );
-
-
-        /* produto */
-
-
-        document.getElementById(
-            "produto"
-        ).textContent =
-            resultado.produto ||
-            "PS5 Slim Digital 1TB";
-
-
-        /* limite */
-
-
-        const limite =
-            Number(
-                resultado.preco_maximo ||
-                3500
-            );
-
-
-        document.getElementById(
-            "limite"
-        ).textContent =
-            dinheiro(limite);
-
-
-        /* ofertas */
-
-
-        const ofertas =
-            Array.isArray(
-                resultado.ofertas
-            )
-            ? resultado.ofertas
-            : [];
-
-
-        const ofertasComPreco =
-            ofertas.filter(
-                item =>
-                    item &&
-                    item.preco != null
-            );
-
-
-        ofertasComPreco.sort(
-            (a,b) =>
-                Number(a.preco) -
-                Number(b.preco)
-        );
-
-
-        /* menor preço */
-
-
-        const menor =
-            resultado.menor_preco != null
-            ? Number(
-                resultado.menor_preco
-            )
-            : (
-                ofertasComPreco.length
-                ? Number(
-                    ofertasComPreco[0].preco
-                )
-                : null
-            );
-
-
-        const preco =
-            document.getElementById(
-                "preco"
-            );
-
-
-        if (menor !== null) {
-
-            preco.textContent =
-                dinheiro(menor);
-
-
-            if (menor <= limite) {
-
-                preco.className =
-                    "preco verde";
-
-            } else {
-
-                preco.className =
-                    "preco vermelho";
-
-            }
-
-        } else {
-
-            preco.textContent =
-                "Não encontrado";
-
-            preco.className =
-                "preco cinza";
-
-        }
-
-
-        /* loja */
-
+    if (validas.length) {
 
         const primeira =
-            ofertasComPreco[0];
+            validas[0];
 
 
-        const loja =
-            document.getElementById(
-                "loja"
-            );
+        document.getElementById(
+            "loja"
+        ).textContent =
+            "🏪 " +
+            primeira.loja;
 
 
         const link =
             document.getElementById(
-                "linkOferta"
+                "link"
             );
 
 
-        if (primeira) {
+        if (primeira.url) {
 
-            loja.textContent =
-                "🏪 " +
-                (
-                    primeira.loja ||
-                    "Loja"
-                );
-
-
-            if (primeira.url) {
-
-                link.href =
-                    primeira.url;
-
-                link.style.display =
-                    "inline-block";
-
-            }
-
-        } else {
-
-            loja.textContent =
-                "🏪 Nenhuma oferta disponível";
+            link.href =
+                primeira.url;
 
             link.style.display =
-                "none";
+                "inline-block";
 
         }
 
-
-        /* status */
-
-
-        const status =
-            document.getElementById(
-                "status"
-            );
+    }
 
 
-        const card =
-            document.getElementById(
-                "cardProduto"
-            );
+    document.getElementById(
+        "limite"
+    ).textContent =
+        dinheiro(limite);
 
 
-        if (
-            menor !== null &&
-            menor <= limite
-        ) {
-
-            status.innerHTML = `
-
-                <span class="badge badge-green">
-
-                    🔥 ABAIXO DO LIMITE
-
-                </span>
-
-            `;
+    document.getElementById(
+        "oferta"
+    ).textContent =
+        menor !== null &&
+        menor <= limite
+        ? "🔥 OFERTA ENCONTRADA!"
+        : "Preço acima do limite";
 
 
-            card.classList.add(
-                "oferta"
-            );
-
-        } else {
-
-            status.innerHTML = `
-
-                <span class="badge badge-gray">
-
-                    Preço acima do limite
-
-                </span>
-
-            `;
+    document.getElementById(
+        "atualizado"
+    ).textContent =
+        "🕐 Atualizado: " +
+        (
+            dados.atualizado ||
+            "-"
+        );
 
 
-            card.classList.remove(
-                "oferta"
-            );
-
-        }
-
-
-        /* economia */
+    const tabela =
+        document.getElementById(
+            "lojas"
+        );
 
 
-        const economia =
-            document.getElementById(
-                "economia"
-            );
+    tabela.innerHTML = "";
 
 
-        if (
-            menor !== null &&
-            menor < limite
-        ) {
+    ofertas.forEach(
+        item => {
 
-            economia.textContent =
-                dinheiro(
-                    limite - menor
+            const tr =
+                document.createElement(
+                    "tr"
                 );
 
 
-            economia.className =
-                "stat-value verde";
-
-        } else {
-
-            economia.textContent =
-                "R$ 0,00";
-
-            economia.className =
-                "stat-value";
-
-        }
+            let preco =
+                item.preco !== undefined
+                ? dinheiro(item.preco)
+                : "—";
 
 
-        /* quantidade */
+            let status =
+                item.status === "bloqueada"
+                ? "🚫 Bloqueada"
+                : (
+                    item.preco <= limite
+                    ? "🔥 Oferta"
+                    : "Normal"
+                );
 
 
-        document.getElementById(
-            "quantidade"
-        ).textContent =
-            ofertasComPreco.length;
+            tr.innerHTML = `
 
+                <td>
+                    ${item.loja || "-"}
+                </td>
 
-        /* oferta */
+                <td>
+                    ${preco}
+                </td>
 
-
-        document.getElementById(
-            "oferta"
-        ).textContent =
-            resultado.oferta_encontrada
-            ? "🔥 Sim"
-            : "Não";
-
-
-        /* tabela */
-
-
-        const tabela =
-            document.getElementById(
-                "tabelaOfertas"
-            );
-
-
-        tabela.innerHTML = "";
-
-
-        if (!ofertas.length) {
-
-            tabela.innerHTML = `
-
-                <tr>
-
-                    <td colspan="3">
-
-                        Nenhuma oferta encontrada.
-
-                    </td>
-
-                </tr>
+                <td>
+                    ${status}
+                </td>
 
             `;
 
-        } else {
 
-            ofertas.forEach(
-                item => {
-
-                    const linha =
-                        document.createElement(
-                            "tr"
-                        );
-
-
-                    const temPreco =
-                        item.preco != null;
-
-
-                    let precoTexto =
-                        "—";
-
-
-                    if (temPreco) {
-
-                        precoTexto =
-                            dinheiro(
-                                item.preco
-                            );
-
-                    }
-
-
-                    let statusTexto =
-                        "—";
-
-
-                    if (
-                        item.status ===
-                        "bloqueada"
-                    ) {
-
-                        statusTexto =
-                            `<span class="badge badge-red">
-                                🚫 Bloqueada
-                            </span>`;
-
-                    } else if (
-                        temPreco &&
-                        Number(item.preco)
-                        <= limite
-                    ) {
-
-                        statusTexto =
-                            `<span class="badge badge-green">
-                                🔥 Oferta
-                            </span>`;
-
-                    } else if (
-                        temPreco
-                    ) {
-
-                        statusTexto =
-                            `<span class="badge badge-gray">
-                                Normal
-                            </span>`;
-
-                    }
-
-
-                    linha.innerHTML = `
-
-                        <td>
-                            ${textoSeguro(
-                                item.loja ||
-                                "-"
-                            )}
-                        </td>
-
-                        <td>
-                            <strong>
-                                ${precoTexto}
-                            </strong>
-                        </td>
-
-                        <td>
-                            ${statusTexto}
-                        </td>
-
-                    `;
-
-
-                    tabela.appendChild(
-                        linha
-                    );
-
-                }
-            );
+            tabela.appendChild(tr);
 
         }
-
-
-        /* atualizado */
-
-
-        document.getElementById(
-            "atualizado"
-        ).textContent =
-            "🕐 Última atualização: " +
-            (
-                resultado.atualizado ||
-                "Não informado"
-            );
-
-
-        /* mostrar painel */
-
-
-        document.getElementById(
-            "loading"
-        ).style.display =
-            "none";
-
-
-        document.getElementById(
-            "painel"
-        ).style.display =
-            "block";
-
-
-        /* histórico */
-
-        await carregarHistorico();
-
-
-    } catch (erro) {
-
-        mostrarErro(
-            erro.message
-        );
-
-    }
+    );
 
 }
 
 
-/* ===================================
-   INICIAR
-=================================== */
-
-
-carregar();
-
-
-/* Atualiza a página a cada 5 minutos */
-
-
-setInterval(
-    carregar,
-    5 * 60 * 1000
-);
-
+iniciar();
 
 </script>
 
-
 </body>
-
 </html>
