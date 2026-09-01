@@ -1,0 +1,30 @@
+{
+  "produto": "PS5 Slim Digital 1TB",
+  "preco_maximo": 3500.0,
+  "atualizado": "01/09/2026 04:11:59",
+  "menor_preco": 3254.07,
+  "oferta_encontrada": true,
+  "ofertas": [
+    {
+      "loja": "KaBuM!",
+      "titulo": "Console Sony PlayStation 5 Slim, Edição Digital, SSD 1TB, Controle Sem Fio DualSense + 2 Jogos Digitais - 1000038894",
+      "preco": 3254.07,
+      "url": "https://www.kabum.com.br/produto/875818/console-sony-playstation-5-slim-edicao-digital-ssd-1tb-controle-sem-fio-dualsense-2-jogos-digitais-1000038894",
+      "status": "encontrado"
+    },
+    {
+      "loja": "Pichau",
+      "status": "bloqueada",
+      "erro": "HTTP 403"
+    }
+  ],
+  "ranking": [
+    {
+      "loja": "KaBuM!",
+      "titulo": "Console Sony PlayStation 5 Slim, Edição Digital, SSD 1TB, Controle Sem Fio DualSense + 2 Jogos Digitais - 1000038894",
+      "preco": 3254.07,
+      "url": "https://www.kabum.com.br/produto/875818/console-sony-playstation-5-slim-edicao-digital-ssd-1tb-controle-sem-fio-dualsense-2-jogos-digitais-1000038894",
+      "status": "encontrado"
+    }
+  ]
+}
