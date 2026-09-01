@@ -10,7 +10,7 @@
 <meta name="theme-color"
       content="#111827">
 
-<title>Robô PS5 V6</title>
+<title>Robô PS5 V6.1</title>
 
 <style>
 
@@ -20,8 +20,12 @@
 
 body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont,
-                 "Segoe UI", Arial, sans-serif;
+    font-family: -apple-system,
+                 BlinkMacSystemFont,
+                 "Segoe UI",
+                 Arial,
+                 sans-serif;
+
     background: #f3f4f6;
     color: #111827;
 }
@@ -29,21 +33,21 @@ body {
 header {
     background: #111827;
     color: white;
-    padding: 24px 18px;
+    padding: 25px 18px;
 }
 
 header h1 {
     margin: 0;
-    font-size: 27px;
+    font-size: 26px;
 }
 
 header p {
     margin: 7px 0 0;
-    opacity: .75;
+    color: #d1d5db;
 }
 
 .container {
-    max-width: 950px;
+    max-width: 900px;
     margin: auto;
     padding: 16px;
 }
@@ -53,17 +57,24 @@ header p {
     border-radius: 18px;
     padding: 20px;
     margin-bottom: 16px;
-    box-shadow: 0 4px 18px rgba(0,0,0,.07);
+
+    box-shadow:
+        0 4px 18px rgba(0,0,0,.07);
 }
 
 h2 {
     margin-top: 0;
 }
 
+.produto {
+    font-size: 19px;
+    font-weight: 700;
+}
+
 .preco {
-    font-size: 40px;
+    font-size: 42px;
     font-weight: 800;
-    margin: 8px 0 12px;
+    margin: 10px 0;
 }
 
 .verde {
@@ -86,7 +97,8 @@ h2 {
 .grid {
     display: grid;
     grid-template-columns:
-        repeat(2, minmax(0, 1fr));
+        repeat(2, 1fr);
+
     gap: 12px;
 }
 
@@ -102,7 +114,7 @@ h2 {
 }
 
 .stat-value {
-    font-size: 21px;
+    font-size: 20px;
     font-weight: 700;
     margin-top: 5px;
 }
@@ -111,8 +123,8 @@ h2 {
     display: inline-block;
     padding: 8px 13px;
     border-radius: 20px;
-    font-size: 13px;
     font-weight: 700;
+    font-size: 13px;
 }
 
 .badge-green {
@@ -130,22 +142,26 @@ h2 {
     color: #374151;
 }
 
-button,
-.link {
-    display: inline-block;
-    border: 0;
-    padding: 12px 17px;
-    border-radius: 11px;
-    background: #111827;
-    color: white;
-    text-decoration: none;
-    cursor: pointer;
-    margin-top: 10px;
-    font-size: 15px;
+.oferta {
+    border: 2px solid #22c55e;
 }
 
-button:active,
-.link:active {
+.botao {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 13px 18px;
+
+    background: #111827;
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 11px;
+
+    font-weight: 600;
+}
+
+.botao:active {
     transform: scale(.98);
 }
 
@@ -160,9 +176,11 @@ table {
 
 th,
 td {
-    text-align: left;
     padding: 12px 8px;
-    border-bottom: 1px solid #e5e7eb;
+    text-align: left;
+
+    border-bottom:
+        1px solid #e5e7eb;
 }
 
 th {
@@ -170,26 +188,22 @@ th {
     font-size: 13px;
 }
 
-canvas {
-    width: 100% !important;
-    height: 280px !important;
-}
-
 .loading {
     text-align: center;
-    padding: 40px 10px;
+    padding: 45px 10px;
     color: #6b7280;
 }
 
 .erro {
     background: #fee2e2;
     color: #991b1b;
-    padding: 15px;
+    padding: 16px;
     border-radius: 12px;
 }
 
-.oferta {
-    border: 2px solid #22c55e;
+canvas {
+    width: 100%;
+    height: 260px;
 }
 
 .footer {
@@ -199,23 +213,14 @@ canvas {
     padding: 20px;
 }
 
-@media (max-width: 600px) {
+@media(max-width:600px) {
 
     .grid {
         grid-template-columns: 1fr;
     }
 
     .preco {
-        font-size: 34px;
-    }
-
-    header h1 {
-        font-size: 23px;
-    }
-
-    th,
-    td {
-        font-size: 13px;
+        font-size: 36px;
     }
 
 }
@@ -227,18 +232,20 @@ canvas {
 
 <body>
 
+
 <header>
 
 <h1>🎮 Robô de Preços PS5</h1>
 
-<p>Monitoramento automático • V6</p>
+<p>Monitoramento automático • V6.1</p>
 
 </header>
 
 
 <div class="container">
 
-<div id="mensagem"
+
+<div id="loading"
      class="loading">
 
 ⏳ Carregando preços...
@@ -246,51 +253,77 @@ canvas {
 </div>
 
 
-<div id="conteudo"
+<div id="erro"
+     style="display:none;">
+</div>
+
+
+<div id="painel"
      style="display:none;">
 
 
-<!-- RESUMO -->
+<!-- PRODUTO -->
 
-<div id="cardPrincipal"
+<div id="cardProduto"
      class="card">
 
-<h2 id="produto">
+
+<div class="produto"
+     id="produto">
+
 PS5 Slim Digital 1TB
-</h2>
+
+</div>
+
 
 <p class="info">
-🏆 Menor preço atual
+
+🏆 Menor preço encontrado
+
 </p>
+
 
 <div id="preco"
      class="preco">
+
+—
+
 </div>
+
 
 <div id="loja"
      class="info">
+
+🏪 —
+
 </div>
+
 
 <div id="status">
+
 </div>
 
-<a id="comprar"
-   class="link"
+
+<a id="linkOferta"
+   class="botao"
    target="_blank"
-   rel="noopener">
+   rel="noopener"
+   style="display:none;">
 
 🛒 Ver oferta
 
 </a>
 
+
 </div>
 
 
-<!-- ESTATÍSTICAS -->
+<!-- RESUMO -->
 
 <div class="card">
 
 <h2>📊 Resumo</h2>
+
 
 <div class="grid">
 
@@ -298,24 +331,16 @@ PS5 Slim Digital 1TB
 <div class="stat">
 
 <div class="stat-title">
-🎯 Seu limite
+
+🎯 Limite definido
+
 </div>
 
 <div id="limite"
      class="stat-value">
-</div>
 
-</div>
+R$ 3.500,00
 
-
-<div class="stat">
-
-<div class="stat-title">
-📉 Menor histórico
-</div>
-
-<div id="menorHistorico"
-     class="stat-value">
 </div>
 
 </div>
@@ -324,11 +349,16 @@ PS5 Slim Digital 1TB
 <div class="stat">
 
 <div class="stat-title">
+
 💰 Economia
+
 </div>
 
 <div id="economia"
      class="stat-value">
+
+—
+
 </div>
 
 </div>
@@ -337,11 +367,34 @@ PS5 Slim Digital 1TB
 <div class="stat">
 
 <div class="stat-title">
-📈 Variação
+
+🏷️ Ofertas encontradas
+
 </div>
 
-<div id="variacao"
+<div id="quantidade"
      class="stat-value">
+
+—
+
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-title">
+
+🔥 Oferta
+
+</div>
+
+<div id="oferta"
+     class="stat-value">
+
+—
+
 </div>
 
 </div>
@@ -352,52 +405,42 @@ PS5 Slim Digital 1TB
 </div>
 
 
-<!-- OFERTAS -->
+<!-- LOJAS -->
 
 <div class="card">
 
-<h2>🏪 Ofertas</h2>
+<h2>🏪 Comparação de lojas</h2>
+
 
 <div class="table-container">
+
 
 <table>
 
 <thead>
 
 <tr>
+
 <th>Loja</th>
+
 <th>Preço</th>
+
 <th>Status</th>
+
 </tr>
 
 </thead>
 
-<tbody id="ofertas">
+
+<tbody id="tabelaOfertas">
 
 </tbody>
 
+
 </table>
 
-</div>
 
 </div>
-
-
-<!-- GRÁFICO -->
-
-<div class="card">
-
-<h2>📈 Histórico de preços</h2>
-
-<canvas id="grafico"></canvas>
-
-<p id="semHistorico"
-   class="info"
-   style="display:none;">
-
-Ainda não há histórico suficiente.
-
-</p>
 
 </div>
 
@@ -406,27 +449,61 @@ Ainda não há histórico suficiente.
 
 <div class="card">
 
+<h2>📈 Histórico</h2>
+
+
+<canvas id="grafico">
+
+</canvas>
+
+
+<div id="semHistorico"
+     class="info"
+     style="display:none;">
+
+Ainda não existem dados suficientes
+para montar o gráfico.
+
+</div>
+
+
+</div>
+
+
+<!-- ÚLTIMAS CONSULTAS -->
+
+<div class="card">
+
 <h2>🕐 Últimas consultas</h2>
 
+
 <div class="table-container">
+
 
 <table>
 
 <thead>
 
 <tr>
+
 <th>Data</th>
+
 <th>Loja</th>
+
 <th>Preço</th>
+
 </tr>
 
 </thead>
 
-<tbody id="historico">
+
+<tbody id="tabelaHistorico">
 
 </tbody>
 
+
 </table>
+
 
 </div>
 
@@ -437,19 +514,33 @@ Ainda não há histórico suficiente.
 
 <div class="card">
 
-<h2>🤖 Informações do robô</h2>
+<h2>🤖 Robô</h2>
+
 
 <p id="atualizado"
    class="info">
+
+🕐 Última atualização: —
+
 </p>
 
-<p id="quantidade"
-   class="info">
+
+<p class="info">
+
+⏰ O robô realiza consultas
+automaticamente.
+
 </p>
 
-<button onclick="carregar()">
-🔄 Atualizar agora
-</button>
+
+<a href=""
+   class="botao"
+   onclick="location.reload(); return false;">
+
+🔄 Atualizar painel
+
+</a>
+
 
 </div>
 
@@ -459,9 +550,12 @@ Ainda não há histórico suficiente.
 
 <div class="footer">
 
-Robô PS5 V6 • Atualização automática pelo GitHub Actions
+Robô PS5 V6.1<br>
+
+Comparador automático de preços
 
 </div>
+
 
 </div>
 
@@ -469,44 +563,22 @@ Robô PS5 V6 • Atualização automática pelo GitHub Actions
 <script>
 
 
-/* =========================
-   CONFIGURAÇÃO
-========================= */
+/* ===================================
+   ARQUIVOS
+=================================== */
 
 
-const ARQUIVO_RESULTADO =
-    "resultado.json";
-
-const ARQUIVO_HISTORICO =
-    "historico.json";
+const RESULTADO =
+    "./resultado.json";
 
 
-/* =========================
-   FUNÇÕES
-========================= */
+const HISTORICO =
+    "./historico.json";
 
 
-async function carregarJSON(arquivo) {
-
-    const resposta =
-        await fetch(
-            arquivo +
-            "?t=" +
-            Date.now()
-        );
-
-    if (!resposta.ok) {
-
-        throw new Error(
-            "Não foi possível carregar " +
-            arquivo
-        );
-
-    }
-
-    return await resposta.json();
-
-}
+/* ===================================
+   FORMATAR DINHEIRO
+=================================== */
 
 
 function dinheiro(valor) {
@@ -522,9 +594,14 @@ function dinheiro(valor) {
 }
 
 
-function escapeHTML(texto) {
+/* ===================================
+   ESCAPAR TEXTO
+=================================== */
 
-    return String(texto)
+
+function textoSeguro(valor) {
+
+    return String(valor ?? "")
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;")
@@ -534,192 +611,278 @@ function escapeHTML(texto) {
 }
 
 
-/* =========================
-   GRÁFICO
-========================= */
+/* ===================================
+   CARREGAR JSON
+=================================== */
 
 
-function desenharGrafico(historico) {
+async function carregarJSON(arquivo) {
+
+    const resposta =
+        await fetch(
+            arquivo +
+            "?cache=" +
+            Date.now()
+        );
+
+
+    if (!resposta.ok) {
+
+        throw new Error(
+            "Arquivo não encontrado: " +
+            arquivo
+        );
+
+    }
+
+
+    return await resposta.json();
+
+}
+
+
+/* ===================================
+   MOSTRAR ERRO
+=================================== */
+
+
+function mostrarErro(mensagem) {
+
+    document.getElementById(
+        "loading"
+    ).style.display = "none";
+
+
+    const erro =
+        document.getElementById(
+            "erro"
+        );
+
+
+    erro.style.display = "block";
+
+
+    erro.innerHTML = `
+
+        <div class="erro">
+
+            ❌ Não foi possível carregar
+            os dados do robô.
+
+            <br><br>
+
+            ${textoSeguro(mensagem)}
+
+            <br><br>
+
+            Tente atualizar a página.
+
+        </div>
+
+    `;
+
+}
+
+
+/* ===================================
+   DESENHAR GRÁFICO
+=================================== */
+
+
+function desenharGrafico(dados) {
 
     const canvas =
         document.getElementById(
             "grafico"
         );
 
-    const contexto =
-        canvas.getContext("2d");
 
-
-    contexto.clearRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
+    const sem =
+        document.getElementById(
+            "semHistorico"
+        );
 
 
     if (
-        !historico ||
-        historico.length < 2
+        !Array.isArray(dados) ||
+        dados.length < 2
     ) {
 
-        document.getElementById(
-            "grafico"
-        ).style.display = "none";
+        canvas.style.display =
+            "none";
 
-        document.getElementById(
-            "semHistorico"
-        ).style.display = "block";
+        sem.style.display =
+            "block";
 
         return;
 
     }
 
 
-    document.getElementById(
-        "grafico"
-    ).style.display = "block";
+    sem.style.display =
+        "none";
 
-    document.getElementById(
-        "semHistorico"
-    ).style.display = "none";
+
+    canvas.style.display =
+        "block";
 
 
     const largura =
-        canvas.clientWidth;
-
-    const altura = 280;
+        canvas.clientWidth || 600;
 
 
-    const escala =
+    const altura =
+        260;
+
+
+    const dpr =
         window.devicePixelRatio || 1;
 
 
     canvas.width =
-        largura * escala;
+        largura * dpr;
+
 
     canvas.height =
-        altura * escala;
+        altura * dpr;
 
 
-    contexto.scale(
-        escala,
-        escala
-    );
+    const ctx =
+        canvas.getContext("2d");
 
 
-    const dados =
-        historico
-            .slice()
-            .sort(
-                (a,b) =>
-                    new Date(a.timestamp || 0)
-                    -
-                    new Date(b.timestamp || 0)
+    ctx.scale(dpr, dpr);
+
+
+    const registros =
+        dados
+            .filter(
+                item =>
+                    item &&
+                    item.preco != null
             )
             .slice(-20);
 
 
+    if (registros.length < 2) {
+
+        canvas.style.display =
+            "none";
+
+        sem.style.display =
+            "block";
+
+        return;
+
+    }
+
+
     const precos =
-        dados.map(
+        registros.map(
             item =>
                 Number(item.preco)
         );
 
 
-    const minimo =
+    const menor =
         Math.min(...precos);
 
-    const maximo =
+
+    const maior =
         Math.max(...precos);
 
 
-    const margem = 30;
+    const margemX =
+        35;
 
-    const topo = 20;
 
-    const base =
-        altura - 30;
+    const margemY =
+        25;
+
+
+    const larguraGrafico =
+        largura -
+        margemX -
+        10;
+
+
+    const alturaGrafico =
+        altura -
+        margemY -
+        30;
 
 
     const intervalo =
-        maximo - minimo || 1;
+        maior - menor || 1;
 
 
-    /* Eixos */
+    /* eixo */
 
-    contexto.beginPath();
+    ctx.beginPath();
 
-    contexto.moveTo(
-        margem,
-        topo
+    ctx.moveTo(
+        margemX,
+        margemY
     );
 
-    contexto.lineTo(
-        margem,
-        base
+    ctx.lineTo(
+        margemX,
+        altura - 30
     );
 
-    contexto.lineTo(
+    ctx.lineTo(
         largura - 10,
-        base
+        altura - 30
     );
 
-    contexto.stroke();
+    ctx.stroke();
 
 
-    /* Linha */
+    /* linha */
 
-    contexto.beginPath();
+    ctx.beginPath();
 
 
-    dados.forEach(
+    registros.forEach(
         (item, index) => {
 
             const x =
-                margem +
+                margemX +
                 (
                     index /
-                    Math.max(
-                        dados.length - 1,
-                        1
-                    )
+                    (registros.length - 1)
                 ) *
-                (
-                    largura -
-                    margem -
-                    10
-                );
+                larguraGrafico;
 
 
             const y =
-                base -
+                (
+                    altura - 30
+                )
+                -
                 (
                     (
                         Number(item.preco)
                         -
-                        minimo
+                        menor
                     )
                     /
                     intervalo
                 )
                 *
-                (
-                    base -
-                    topo
-                );
+                alturaGrafico;
 
 
             if (index === 0) {
 
-                contexto.moveTo(
+                ctx.moveTo(
                     x,
                     y
                 );
 
             } else {
 
-                contexto.lineTo(
+                ctx.lineTo(
                     x,
                     y
                 );
@@ -730,51 +893,45 @@ function desenharGrafico(historico) {
     );
 
 
-    contexto.stroke();
+    ctx.stroke();
 
 
-    /* Pontos */
+    /* pontos */
 
-    dados.forEach(
+
+    registros.forEach(
         (item, index) => {
 
             const x =
-                margem +
+                margemX +
                 (
                     index /
-                    Math.max(
-                        dados.length - 1,
-                        1
-                    )
+                    (registros.length - 1)
                 ) *
-                (
-                    largura -
-                    margem -
-                    10
-                );
+                larguraGrafico;
 
 
             const y =
-                base -
+                (
+                    altura - 30
+                )
+                -
                 (
                     (
                         Number(item.preco)
                         -
-                        minimo
+                        menor
                     )
                     /
                     intervalo
                 )
                 *
-                (
-                    base -
-                    topo
-                );
+                alturaGrafico;
 
 
-            contexto.beginPath();
+            ctx.beginPath();
 
-            contexto.arc(
+            ctx.arc(
                 x,
                 y,
                 4,
@@ -782,27 +939,25 @@ function desenharGrafico(historico) {
                 Math.PI * 2
             );
 
-            contexto.fill();
+            ctx.fill();
 
         }
     );
 
 
-    /* Textos */
-
-    contexto.font =
+    ctx.font =
         "12px Arial";
 
 
-    contexto.fillText(
-        dinheiro(maximo),
+    ctx.fillText(
+        dinheiro(maior),
         5,
         15
     );
 
 
-    contexto.fillText(
-        dinheiro(minimo),
+    ctx.fillText(
+        dinheiro(menor),
         5,
         altura - 5
     );
@@ -810,97 +965,132 @@ function desenharGrafico(historico) {
 }
 
 
-/* =========================
-   CARREGAR
-========================= */
+/* ===================================
+   CARREGAR HISTÓRICO
+=================================== */
 
 
-async function carregar() {
-
-    const mensagem =
-        document.getElementById(
-            "mensagem"
-        );
-
+async function carregarHistorico() {
 
     try {
 
-        mensagem.style.display =
-            "block";
-
-        mensagem.innerHTML =
-            "⏳ Carregando preços...";
-
-
-        const resultado =
+        const historico =
             await carregarJSON(
-                ARQUIVO_RESULTADO
+                HISTORICO
             );
 
 
-        let historico = [];
+        if (
+            !Array.isArray(historico)
+        ) {
 
-
-        try {
-
-            historico =
-                await carregarJSON(
-                    ARQUIVO_HISTORICO
-                );
-
-        } catch {
-
-            historico = [];
+            return [];
 
         }
 
 
+        desenharGrafico(
+            historico
+        );
+
+
+        const tabela =
+            document.getElementById(
+                "tabelaHistorico"
+            );
+
+
+        tabela.innerHTML = "";
+
+
+        historico
+            .slice()
+            .reverse()
+            .slice(0, 20)
+            .forEach(
+                item => {
+
+                    const linha =
+                        document.createElement(
+                            "tr"
+                        );
+
+
+                    linha.innerHTML = `
+
+                        <td>
+                            ${textoSeguro(
+                                item.data ||
+                                item.atualizado ||
+                                "-"
+                            )}
+                        </td>
+
+                        <td>
+                            ${textoSeguro(
+                                item.loja ||
+                                "-"
+                            )}
+                        </td>
+
+                        <td>
+                            <strong>
+                                ${dinheiro(
+                                    item.preco
+                                )}
+                            </strong>
+                        </td>
+
+                    `;
+
+
+                    tabela.appendChild(
+                        linha
+                    );
+
+                }
+            );
+
+
+        return historico;
+
+    } catch {
+
         document.getElementById(
-            "conteudo"
+            "semHistorico"
         ).style.display =
             "block";
 
 
-        mensagem.style.display =
-            "none";
+        return [];
+
+    }
+
+}
 
 
-        /* =====================
-           DADOS PRINCIPAIS
-        ===================== */
+/* ===================================
+   CARREGAR RESULTADO
+=================================== */
 
 
-        const limite =
-            Number(
-                resultado.preco_maximo ||
-                3500
+async function carregar() {
+
+    try {
+
+        document.getElementById(
+            "loading"
+        ).style.display =
+            "block";
+
+
+        const resultado =
+            await carregarJSON(
+                RESULTADO
             );
 
 
-        let ofertas =
-            resultado.ranking ||
-            resultado.ofertas ||
-            [];
-
-
-        ofertas =
-            ofertas.filter(
-                item =>
-                    item.preco != null
-            );
-
-
-        ofertas.sort(
-            (a,b) =>
-                Number(a.preco) -
-                Number(b.preco)
-        );
-
-
-        const menor =
-            ofertas.length
-            ? Number(ofertas[0].preco)
-            : null;
+        /* produto */
 
 
         document.getElementById(
@@ -910,18 +1100,66 @@ async function carregar() {
             "PS5 Slim Digital 1TB";
 
 
+        /* limite */
+
+
+        const limite =
+            Number(
+                resultado.preco_maximo ||
+                3500
+            );
+
+
         document.getElementById(
             "limite"
         ).textContent =
             dinheiro(limite);
 
 
-        /* =====================
-           PREÇO ATUAL
-        ===================== */
+        /* ofertas */
 
 
-        const precoElemento =
+        const ofertas =
+            Array.isArray(
+                resultado.ofertas
+            )
+            ? resultado.ofertas
+            : [];
+
+
+        const ofertasComPreco =
+            ofertas.filter(
+                item =>
+                    item &&
+                    item.preco != null
+            );
+
+
+        ofertasComPreco.sort(
+            (a,b) =>
+                Number(a.preco) -
+                Number(b.preco)
+        );
+
+
+        /* menor preço */
+
+
+        const menor =
+            resultado.menor_preco != null
+            ? Number(
+                resultado.menor_preco
+            )
+            : (
+                ofertasComPreco.length
+                ? Number(
+                    ofertasComPreco[0].preco
+                )
+                : null
+            );
+
+
+        const preco =
             document.getElementById(
                 "preco"
             );
@@ -929,77 +1167,84 @@ async function carregar() {
 
         if (menor !== null) {
 
-            precoElemento.textContent =
+            preco.textContent =
                 dinheiro(menor);
 
 
-            precoElemento.className =
-                "preco " +
-                (
-                    menor <= limite
-                    ? "verde"
-                    : "vermelho"
-                );
+            if (menor <= limite) {
+
+                preco.className =
+                    "preco verde";
+
+            } else {
+
+                preco.className =
+                    "preco vermelho";
+
+            }
 
         } else {
 
-            precoElemento.textContent =
-                "Preço não encontrado";
+            preco.textContent =
+                "Não encontrado";
 
-            precoElemento.className =
+            preco.className =
                 "preco cinza";
 
         }
 
 
-        /* =====================
-           LOJA
-        ===================== */
+        /* loja */
 
 
-        if (ofertas.length) {
-
-            const primeira =
-                ofertas[0];
+        const primeira =
+            ofertasComPreco[0];
 
 
+        const loja =
             document.getElementById(
                 "loja"
-            ).textContent =
+            );
+
+
+        const link =
+            document.getElementById(
+                "linkOferta"
+            );
+
+
+        if (primeira) {
+
+            loja.textContent =
                 "🏪 " +
                 (
                     primeira.loja ||
-                    "Loja não informada"
-                );
-
-
-            const comprar =
-                document.getElementById(
-                    "comprar"
+                    "Loja"
                 );
 
 
             if (primeira.url) {
 
-                comprar.href =
+                link.href =
                     primeira.url;
 
-                comprar.style.display =
+                link.style.display =
                     "inline-block";
 
-            } else {
-
-                comprar.style.display =
-                    "none";
-
             }
+
+        } else {
+
+            loja.textContent =
+                "🏪 Nenhuma oferta disponível";
+
+            link.style.display =
+                "none";
 
         }
 
 
-        /* =====================
-           STATUS
-        ===================== */
+        /* status */
 
 
         const status =
@@ -1010,7 +1255,7 @@ async function carregar() {
 
         const card =
             document.getElementById(
-                "cardPrincipal"
+                "cardProduto"
             );
 
 
@@ -1019,10 +1264,16 @@ async function carregar() {
             menor <= limite
         ) {
 
-            status.innerHTML =
-                `<span class="badge badge-green">
-                    🔥 OFERTA!
-                </span>`;
+            status.innerHTML = `
+
+                <span class="badge badge-green">
+
+                    🔥 ABAIXO DO LIMITE
+
+                </span>
+
+            `;
+
 
             card.classList.add(
                 "oferta"
@@ -1030,10 +1281,16 @@ async function carregar() {
 
         } else {
 
-            status.innerHTML =
-                `<span class="badge badge-gray">
+            status.innerHTML = `
+
+                <span class="badge badge-gray">
+
                     Preço acima do limite
-                </span>`;
+
+                </span>
+
+            `;
+
 
             card.classList.remove(
                 "oferta"
@@ -1042,40 +1299,250 @@ async function carregar() {
         }
 
 
-        /* =====================
-           MENOR HISTÓRICO
-        ===================== */
+        /* economia */
 
 
-        const historicosValidos =
-            historico.filter(
-                item =>
-                    item.preco != null
+        const economia =
+            document.getElementById(
+                "economia"
             );
 
 
-        let menorHistorico =
-            historicosValidos.length
-            ? Math.min(
-                ...historicosValidos.map(
-                    item =>
-                        Number(item.preco)
-                )
-            )
-            : null;
+        if (
+            menor !== null &&
+            menor < limite
+        ) {
+
+            economia.textContent =
+                dinheiro(
+                    limite - menor
+                );
+
+
+            economia.className =
+                "stat-value verde";
+
+        } else {
+
+            economia.textContent =
+                "R$ 0,00";
+
+            economia.className =
+                "stat-value";
+
+        }
+
+
+        /* quantidade */
 
 
         document.getElementById(
-            "menorHistorico"
+            "quantidade"
         ).textContent =
-            menorHistorico !== null
-            ? dinheiro(menorHistorico)
-            : "—";
+            ofertasComPreco.length;
 
 
-        /* =====================
-           ECONOMIA
-        ===================== */
+        /* oferta */
 
 
-        const
+        document.getElementById(
+            "oferta"
+        ).textContent =
+            resultado.oferta_encontrada
+            ? "🔥 Sim"
+            : "Não";
+
+
+        /* tabela */
+
+
+        const tabela =
+            document.getElementById(
+                "tabelaOfertas"
+            );
+
+
+        tabela.innerHTML = "";
+
+
+        if (!ofertas.length) {
+
+            tabela.innerHTML = `
+
+                <tr>
+
+                    <td colspan="3">
+
+                        Nenhuma oferta encontrada.
+
+                    </td>
+
+                </tr>
+
+            `;
+
+        } else {
+
+            ofertas.forEach(
+                item => {
+
+                    const linha =
+                        document.createElement(
+                            "tr"
+                        );
+
+
+                    const temPreco =
+                        item.preco != null;
+
+
+                    let precoTexto =
+                        "—";
+
+
+                    if (temPreco) {
+
+                        precoTexto =
+                            dinheiro(
+                                item.preco
+                            );
+
+                    }
+
+
+                    let statusTexto =
+                        "—";
+
+
+                    if (
+                        item.status ===
+                        "bloqueada"
+                    ) {
+
+                        statusTexto =
+                            `<span class="badge badge-red">
+                                🚫 Bloqueada
+                            </span>`;
+
+                    } else if (
+                        temPreco &&
+                        Number(item.preco)
+                        <= limite
+                    ) {
+
+                        statusTexto =
+                            `<span class="badge badge-green">
+                                🔥 Oferta
+                            </span>`;
+
+                    } else if (
+                        temPreco
+                    ) {
+
+                        statusTexto =
+                            `<span class="badge badge-gray">
+                                Normal
+                            </span>`;
+
+                    }
+
+
+                    linha.innerHTML = `
+
+                        <td>
+                            ${textoSeguro(
+                                item.loja ||
+                                "-"
+                            )}
+                        </td>
+
+                        <td>
+                            <strong>
+                                ${precoTexto}
+                            </strong>
+                        </td>
+
+                        <td>
+                            ${statusTexto}
+                        </td>
+
+                    `;
+
+
+                    tabela.appendChild(
+                        linha
+                    );
+
+                }
+            );
+
+        }
+
+
+        /* atualizado */
+
+
+        document.getElementById(
+            "atualizado"
+        ).textContent =
+            "🕐 Última atualização: " +
+            (
+                resultado.atualizado ||
+                "Não informado"
+            );
+
+
+        /* mostrar painel */
+
+
+        document.getElementById(
+            "loading"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "painel"
+        ).style.display =
+            "block";
+
+
+        /* histórico */
+
+        await carregarHistorico();
+
+
+    } catch (erro) {
+
+        mostrarErro(
+            erro.message
+        );
+
+    }
+
+}
+
+
+/* ===================================
+   INICIAR
+=================================== */
+
+
+carregar();
+
+
+/* Atualiza a página a cada 5 minutos */
+
+
+setInterval(
+    carregar,
+    5 * 60 * 1000
+);
+
+
+</script>
+
+
+</body>
+
+</html>
