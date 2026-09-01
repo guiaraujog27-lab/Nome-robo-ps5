@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Robô PS5</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f4f7;
+    color: #111827;
+}
+
+header {
+    background: #111827;
+    color: white;
+    padding: 24px 18px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 26px;
+}
+
+header p {
+    margin: 7px 0 0;
+    opacity: .75;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 18px;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 3px 15px rgba(0,0,0,.08);
+}
+
+.preco {
+    font-size: 38px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.verde {
+    color: #16a34a;
+}
+
+.vermelho {
+    color: #dc2626;
+}
+
+.info {
+    color: #6b7280;
+    margin: 5px 0;
+}
+
+button,
+.link {
+    display: inline-block;
+    border: 0;
+    padding: 12px 18px;
+    border-radius: 10px;
+    background: #111827;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 12px 8px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+th {
+    color: #6b7280;
+}
+
+.status {
+    padding: 8px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.ok {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.erro {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+#mensagem {
+    text-align: center;
+    padding: 30px;
+}
+
+@media(max-width:600px) {
+
+    .preco {
+        font-size: 32px;
+    }
+
+    th,
+    td {
+        font-size: 13px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>🎮 Robô de Preços PS5</h1>
+
+<p>Monitoramento automático de ofertas</p>
+
+</header>
+
+<div class="container">
+
+<div id="mensagem">
+Carregando...
+</div>
+
+<div id="conteudo" style="display:none">
+
+<div class="card">
+
+<h2 id="produto"></h2>
+
+<p class="info">
+🏆 Menor preço encontrado
+</p>
+
+<div id="preco"
+     class="preco">
+</div>
+
+<div id="loja"></div>
+
+<div id="economia"></div>
+
+<a id="comprar"
+   class="link"
+   target="_blank">
+   🛒 Ver oferta
+</a>
+
+</div>
+
+
+<div class="card">
+
+<h2>📊 Ofertas encontradas</h2>
+
+<table>
+
+<thead>
+
+<tr>
+<th>Loja</th>
+<th>Preço</th>
+<th>Status</th>
+</tr>
+
+</thead>
+
+<tbody id="ofertas"></tbody>
+
+</table>
+
+</div>
+
+
+<div class="card">
+
+<h2>📈 Histórico</h2>
+
+<table>
+
+<thead>
+
+<tr>
+<th>Data</th>
+<th>Loja</th>
+<th>Preço</th>
+</tr>
+
+</thead>
+
+<tbody id="historico"></tbody>
+
+</table>
+
+</div>
+
+
+<div class="card">
+
+<h2>ℹ️ Robô</h2>
+
+<p id="atualizado"
+   class="info">
+</p>
+
+<p id="limite"
+   class="info">
+</p>
+
+<button onclick="location.reload()">
+🔄 Atualizar painel
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+async function carregarJSON(arquivo) {
+
+    const resposta = await fetch(
+        arquivo + "?t=" + Date.now()
+    );
+
+    if (!resposta.ok) {
+        throw new Error(
+            "Não foi possível carregar " + arquivo
+        );
+    }
+
+    return await resposta.json();
+}
+
+
+function dinheiro(valor) {
+
+    return Number(valor).toLocaleString(
+        "pt-BR",
+        {
+            style: "currency",
+            currency: "BRL"
+        }
+    );
+}
+
+
+async function carregar() {
+
+    try {
+
+        const resultado =
+            await carregarJSON(
+                "resultado.json"
+            );
+
+        let historico = [];
+
+        try {
+
+            historico =
+                await carregarJSON(
+                    "historico.json"
+                );
+
+        } catch (erro) {
+
+            historico = [];
+
+        }
+
+
+        document.getElementById(
+            "mensagem"
+        ).style.display = "none";
+
+
+        document.getElementById(
+            "conteudo"
+        ).style.display = "block";
+
+
+        const ofertas =
+            (resultado.ranking ||
+             resultado.ofertas ||
+             [])
+            .filter(
+                x => x.preco != null
+            );
+
+
+        document.getElementById(
+            "produto"
+        ).textContent =
+            resultado.produto ||
+            "PS5 Slim Digital 1TB";
+
+
+        const menor =
+            resultado.menor_preco ??
+            (
+                ofertas.length
+                ? ofertas[0].preco
+                : null
+            );
+
+
+        const precoElemento =
+            document.getElementById(
+                "preco"
+            );
+
+
+        if (menor !== null) {
+
+            precoElemento.textContent =
+                dinheiro(menor);
+
+            const limite =
+                Number(
+                    resultado.preco_maximo ||
+                    3500
+                );
+
+            if (menor <= limite) {
+
+                precoElemento.className =
+                    "preco verde";
+
+            } else {
+
+                precoElemento.className =
+                    "preco vermelho";
+
+            }
+
+        } else {
+
+            precoElemento.textContent =
+                "Preço não encontrado";
+
+        }
+
+
+        if (ofertas.length) {
+
+            const primeira =
+                ofertas[0];
+
+            document.getElementById(
+                "loja"
+            ).textContent =
+                "🏪 " +
+                (primeira.loja ||
+                 "Loja não informada");
+
+
+            if (primeira.url) {
+
+                document.getElementById(
+                    "comprar"
+                ).href =
+                    primeira.url;
+
+            } else {
+
+                document.getElementById(
+                    "comprar"
+                ).style.display =
+                    "none";
+
+            }
+
+        }
+
+
+        const limite =
+            Number(
+                resultado.preco_maximo ||
+                3500
+            );
+
+
+        if (
+            menor !== null &&
+            menor <= limite
+        ) {
+
+            document.getElementById(
+                "economia"
+            ).innerHTML =
+                `<span class="status ok">
+                🔥 ABAIXO DO SEU LIMITE
+                </span>`;
+
+        } else {
+
+            document.getElementById(
+                "economia"
+            ).innerHTML =
+                `<span class="status erro">
+                Acima do seu limite
+                </span>`;
+
+        }
+
+
+        const ofertasHTML =
+            document.getElementById(
+                "ofertas"
+            );
+
+
+        ofertasHTML.innerHTML = "";
+
+
+        ofertas.forEach(
+            oferta => {
+
+                const tr =
+                    document.createElement(
+                        "tr"
+                    );
+
+
+                const abaixo =
+                    oferta.preco <= limite;
+
+
+                tr.innerHTML = `
+
+                    <td>
+                        ${oferta.loja || "-"}
+                    </td>
+
+                    <td>
+                        <strong>
+                        ${dinheiro(
+                            oferta.preco
+                        )}
+                        </strong>
+                    </td>
+
+                    <td>
+
+                        ${
+                            abaixo
+
+                            ? '<span class="status ok">🔥 Oferta</span>'
+
+                            : '<span class="status">Normal</span>'
+                        }
+
+                    </td>
+                `;
+
+
+                ofertasHTML.appendChild(
+                    tr
+                );
+
+            }
+        );
+
+
+        const historicoHTML =
+            document.getElementById(
+                "historico"
+            );
+
+
+        historicoHTML.innerHTML = "";
+
+
+        historico
+            .slice()
+            .reverse()
+            .slice(0, 30)
+            .forEach(
+                item => {
+
+                    const tr =
+                        document.createElement(
+                            "tr"
+                        );
+
+
+                    tr.innerHTML = `
+
+                        <td>
+                            ${item.data || "-"}
+                        </td>
+
+                        <td>
+                            ${item.loja || "-"}
+                        </td>
+
+                        <td>
+                            <strong>
+                            ${dinheiro(
+                                item.preco
+                            )}
+                            </strong>
+                        </td>
+
+                    `;
+
+
+                    historicoHTML.appendChild(
+                        tr
+                    );
+
+                }
+            );
+
+
+        document.getElementById(
+            "atualizado"
+        ).textContent =
+            "🕐 Última consulta: " +
+            (
+                resultado.atualizado ||
+                "Não informado"
+            );
+
+
+        document.getElementById(
+            "limite"
+        ).textContent =
+            "🎯 Seu limite: " +
+            dinheiro(limite);
+
+    }
+
+    catch (erro) {
+
+        document.getElementById(
+            "mensagem"
+        ).innerHTML =
+            "❌ Não foi possível carregar os dados.<br><br>" +
+            erro.message;
+
+    }
+
+}
+
+
+carregar();
+
+</script>
+
+</body>
+
+</html>
