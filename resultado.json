@@ -1,8 +1,8 @@
 {
   "produto": "PS5 Slim Digital 1TB",
   "preco_maximo": 3500.0,
-  "atualizado": "01/09/2026 06:17:06",
-  "menor_preco": 101.0,
+  "atualizado": "01/09/2026 08:14:15",
+  "menor_preco": 107.0,
   "oferta_encontrada": true,
   "ofertas": [
     {
@@ -42,20 +42,12 @@
     },
     {
       "loja": "Amazon",
-      "titulo": "Amazon.com.br : PS5 Slim Digital 1TB",
-      "preco": 101.0,
+      "titulo": "PS5 Slim Digital 1TB",
       "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
-      "status": "encontrado"
+      "status": "sem_preco"
     }
   ],
   "ranking": [
-    {
-      "loja": "Amazon",
-      "titulo": "Amazon.com.br : PS5 Slim Digital 1TB",
-      "preco": 101.0,
-      "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
-      "status": "encontrado"
-    },
     {
       "loja": "Terabyte",
       "titulo": "Busca : PS5 Slim Digital 1TB - TERABYTE",
