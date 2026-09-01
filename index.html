@@ -1,23 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
 <meta charset="UTF-8">
-
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
-
 <meta name="theme-color"
       content="#111827">
-
-<title>Robô PS5 V7</title>
-
+<title>Robô de Preços V8</title>
 <style>
-
 * {
     box-sizing: border-box;
 }
-
 body {
     margin: 0;
     font-family:
@@ -26,656 +19,370 @@ body {
         "Segoe UI",
         Arial,
         sans-serif;
-
     background: #f3f4f6;
     color: #111827;
 }
-
 header {
     background: #111827;
     color: white;
-    padding: 24px 18px;
+    padding: 25px 18px;
 }
-
 header h1 {
     margin: 0;
     font-size: 27px;
 }
-
 header p {
     margin: 7px 0 0;
     color: #d1d5db;
 }
-
 .container {
     max-width: 950px;
     margin: auto;
     padding: 16px;
 }
-
 .card {
     background: white;
     border-radius: 18px;
     padding: 20px;
     margin-bottom: 16px;
-
-    box-shadow:
-        0 4px 18px rgba(0,0,0,.07);
+    box-shadow: 0 4px 18px rgba(0,0,0,.07);
 }
-
-.produto {
-    font-size: 20px;
+h2 {
+    margin-top: 0;
+}
+.input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    font-size: 16px;
+    outline: none;
+}
+.input:focus {
+    border-color: #111827;
+}
+.botao {
+    display: inline-block;
+    width: 100%;
+    border: 0;
+    margin-top: 12px;
+    padding: 14px 18px;
+    background: #111827;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 12px;
     font-weight: 800;
+    font-size: 15px;
+    cursor: pointer;
 }
-
+.botao-secundario {
+    background: #e5e7eb;
+    color: #111827;
+}
+.resultado {
+    display: none;
+}
+.produto {
+    font-size: 21px;
+    font-weight: 900;
+}
 .preco {
-    font-size: 43px;
+    font-size: 42px;
     font-weight: 900;
     margin: 10px 0;
 }
-
 .verde {
     color: #16a34a;
 }
-
-.vermelho {
-    color: #dc2626;
-}
-
 .cinza {
     color: #6b7280;
 }
-
-.info {
-    color: #6b7280;
-    margin: 7px 0;
+.loja {
+    background: #f9fafb;
+    padding: 16px;
+    border-radius: 14px;
+    margin-top: 12px;
 }
-
+.loja-nome {
+    font-size: 18px;
+    font-weight: 800;
+}
+.loja-info {
+    color: #6b7280;
+    margin-top: 5px;
+}
 .grid {
     display: grid;
-    grid-template-columns:
-        repeat(2, 1fr);
-
+    grid-template-columns: repeat(2, 1fr);
     gap: 12px;
 }
-
 .stat {
     background: #f9fafb;
     border-radius: 14px;
-    padding: 16px;
+    padding: 15px;
 }
-
 .stat-title {
     color: #6b7280;
     font-size: 13px;
 }
-
 .stat-value {
-    font-size: 21px;
+    font-size: 20px;
     font-weight: 800;
-    margin-top: 6px;
+    margin-top: 5px;
 }
-
 .badge {
     display: inline-block;
-    padding: 8px 13px;
+    padding: 7px 11px;
     border-radius: 20px;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 800;
 }
-
 .badge-green {
     background: #dcfce7;
     color: #166534;
 }
-
-.badge-red {
-    background: #fee2e2;
-    color: #991b1b;
-}
-
 .badge-gray {
     background: #e5e7eb;
     color: #374151;
 }
-
-.oferta {
-    border: 2px solid #22c55e;
-}
-
-.botao {
-    display: inline-block;
-    margin-top: 12px;
-    padding: 13px 18px;
-
-    background: #111827;
-    color: white;
-
-    text-decoration: none;
-
-    border-radius: 11px;
-
-    font-weight: 700;
-}
-
-.botao:hover {
-    opacity: .9;
-}
-
-.table-container {
-    overflow-x: auto;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th,
-td {
-    padding: 12px 8px;
-    text-align: left;
-
-    border-bottom:
-        1px solid #e5e7eb;
-}
-
-th {
+.info {
     color: #6b7280;
-    font-size: 13px;
+    line-height: 1.5;
 }
-
-canvas {
-    display: block;
-    width: 100%;
-    height: 280px;
+.aviso {
+    background: #fff7ed;
+    color: #9a3412;
+    padding: 15px;
+    border-radius: 13px;
+    line-height: 1.5;
 }
-
-.grafico-box {
-    overflow: hidden;
-}
-
 .loading {
     text-align: center;
-    padding: 45px 10px;
     color: #6b7280;
+    padding: 25px;
 }
-
 .erro {
     background: #fee2e2;
     color: #991b1b;
-    padding: 16px;
+    padding: 15px;
     border-radius: 12px;
-    word-break: break-word;
 }
-
-.destaque {
-    font-size: 15px;
-    font-weight: 700;
-}
-
 .footer {
     text-align: center;
     color: #9ca3af;
     font-size: 13px;
     padding: 20px;
 }
-
 @media(max-width:600px) {
-
     .grid {
         grid-template-columns: 1fr;
     }
-
     .preco {
-        font-size: 37px;
+        font-size: 36px;
     }
-
-    header h1 {
-        font-size: 23px;
-    }
-
 }
-
 </style>
-
 </head>
-
-
 <body>
-
-
 <header>
-
-<h1>🎮 Robô de Preços PS5</h1>
-
-<p>Monitoramento automático • V7</p>
-
+<h1>🔎 Robô de Preços</h1>
+<p>Pesquisa de produtos • V8</p>
 </header>
-
-
 <div class="container">
-
-
-<div id="loading"
-     class="loading">
-
-⏳ Carregando preços...
-
+<!-- PESQUISA -->
+<div class="card">
+<h2>🔎 O que você quer pesquisar?</h2>
+<input
+    id="produtoInput"
+    class="input"
+    type="text"
+    placeholder="Ex.: PS5 Pro, iPhone 15, RTX 5060..."
+>
+<button
+    class="botao"
+    onclick="pesquisar()">
+🔎 PESQUISAR
+</button>
 </div>
-
-
-<div id="erro"
-     style="display:none;">
+<div
+    id="aviso"
+    class="aviso"
+    style="display:none;">
+💡 Para uma pesquisa automática de preços,
+digite o produto e use o GitHub Actions
+com esse mesmo nome.
 </div>
-
-
-<div id="painel"
-     style="display:none;">
-
-
-<!-- =========================
-     OFERTA ATUAL
-========================= -->
-
-<div id="cardProduto"
-     class="card">
-
-
-<div class="produto"
-     id="produto">
-
-PS5 Slim Digital 1TB
-
+<!-- RESULTADO -->
+<div
+    id="resultado"
+    class="resultado">
+<div class="card">
+<div
+    id="produto"
+    class="produto">
 </div>
-
-
 <p class="info">
-
-🏆 Menor preço encontrado agora
-
+🏆 Melhor preço encontrado pelo robô
 </p>
-
-
-<div id="preco"
-     class="preco">
-
+<div
+    id="preco"
+    class="preco">
 —
-
 </div>
-
-
-<div id="loja"
-     class="info">
-
+<div
+    id="loja"
+    class="info">
 🏪 —
-
 </div>
-
-
-<div id="status">
-
-</div>
-
-
-<a id="linkOferta"
-   class="botao"
-   target="_blank"
-   rel="noopener"
-   style="display:none;">
-
-🛒 Ver oferta
-
+<div id="status"></div>
+<a
+    id="oferta"
+    class="botao"
+    target="_blank"
+    rel="noopener"
+    style="display:none;">
+🛒 VER OFERTA
 </a>
-
-
 </div>
-
-
-<!-- =========================
-     RESUMO ATUAL
-========================= -->
-
+<!-- ESTATÍSTICAS -->
 <div class="card">
-
-<h2>📊 Resumo atual</h2>
-
-
+<h2>📊 Resumo</h2>
 <div class="grid">
-
-
 <div class="stat">
-
 <div class="stat-title">
-🎯 Limite
+🏆 Menor preço
 </div>
-
-<div id="limite"
-     class="stat-value">
-
-R$ 3.500,00
-
-</div>
-
-</div>
-
-
-<div class="stat">
-
-<div class="stat-title">
-💰 Economia
-</div>
-
-<div id="economia"
-     class="stat-value">
-
+<div
+    id="menor"
+    class="stat-value">
 —
-
 </div>
-
 </div>
-
-
 <div class="stat">
-
-<div class="stat-title">
-🏪 Ofertas
-</div>
-
-<div id="quantidade"
-     class="stat-value">
-
-—
-
-</div>
-
-</div>
-
-
-<div class="stat">
-
-<div class="stat-title">
-🔥 Situação
-</div>
-
-<div id="oferta"
-     class="stat-value">
-
-—
-
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
-
-<!-- =========================
-     ESTATÍSTICAS HISTÓRICAS
-========================= -->
-
-<div class="card">
-
-<h2>📈 Histórico de preços</h2>
-
-
-<div class="grid">
-
-
-<div class="stat">
-
-<div class="stat-title">
-🏆 Menor preço histórico
-</div>
-
-<div id="menorHistorico"
-     class="stat-value verde">
-
-—
-
-</div>
-
-</div>
-
-
-<div class="stat">
-
-<div class="stat-title">
-📊 Preço médio
-</div>
-
-<div id="mediaHistorico"
-     class="stat-value">
-
-—
-
-</div>
-
-</div>
-
-
-<div class="stat">
-
 <div class="stat-title">
 📈 Maior preço
 </div>
-
-<div id="maiorHistorico"
-     class="stat-value">
-
+<div
+    id="maior"
+    class="stat-value">
 —
-
 </div>
-
 </div>
-
-
 <div class="stat">
-
 <div class="stat-title">
-🔎 Consultas
+📊 Média
 </div>
-
-<div id="totalConsultas"
-     class="stat-value">
-
+<div
+    id="media"
+    class="stat-value">
 —
-
 </div>
-
 </div>
-
-
+<div class="stat">
+<div class="stat-title">
+🏪 Ofertas
 </div>
-
+<div
+    id="total"
+    class="stat-value">
+—
 </div>
-
-
-<!-- =========================
-     GRÁFICO
-========================= -->
-
-<div class="card grafico-box">
-
-<h2>📉 Evolução do preço</h2>
-
-<canvas id="grafico"></canvas>
-
-<div id="semGrafico"
-     class="info"
-     style="display:none;">
-
-Ainda não existem consultas
-suficientes para montar o gráfico.
-
 </div>
-
 </div>
-
-
-<!-- =========================
-     LOJAS
-========================= -->
-
+</div>
+<!-- LOJAS -->
 <div class="card">
-
-<h2>🏪 Comparação de lojas</h2>
-
-
-<div class="table-container">
-
-<table>
-
-<thead>
-
-<tr>
-
-<th>Loja</th>
-
-<th>Preço</th>
-
-<th>Status</th>
-
-</tr>
-
-</thead>
-
-
-<tbody id="tabelaOfertas">
-
-</tbody>
-
-</table>
-
-</div>
-
-</div>
-
-
-<!-- =========================
-     HISTÓRICO
-========================= -->
-
-<div class="card">
-
-<h2>🕐 Últimas consultas</h2>
-
-
-<div class="table-container">
-
-<table>
-
-<thead>
-
-<tr>
-
-<th>Data</th>
-
-<th>Loja</th>
-
-<th>Preço</th>
-
-</tr>
-
-</thead>
-
-
-<tbody id="tabelaHistorico">
-
-</tbody>
-
-</table>
-
-</div>
-
-</div>
-
-
-<!-- =========================
-     INFORMAÇÕES
-========================= -->
-
-<div class="card">
-
-<h2>🤖 Robô</h2>
-
-
-<p id="atualizado"
-   class="info">
-
-🕐 Última atualização: —
-
-</p>
-
-
+<h2>🏪 Pesquisar nas lojas</h2>
 <p class="info">
-
-⏰ O robô consulta os preços
-automaticamente pelo GitHub Actions.
-
+Esses botões fazem uma busca direta pelo produto.
 </p>
-
-
+<div id="lojas"></div>
+</div>
+<!-- ÚLTIMO RESULTADO DO ROBÔ -->
+<div class="card">
+<h2>🤖 Última consulta automática</h2>
+<div id="ultimaConsulta"
+     class="info">
+Carregando...
+</div>
+</div>
+<!-- COMO ATUALIZAR -->
+<div class="card">
+<h2>⚙️ Pesquisa automática</h2>
 <p class="info">
-
-🔄 O painel atualiza automaticamente
-a cada 5 minutos.
-
+Para fazer uma nova consulta automática,
+vá em:
+<br><br>
+<strong>
+GitHub → Actions → Robo PS5 → Run workflow
+</strong>
+<br><br>
+No campo <strong>produto</strong>, coloque
+o item que deseja pesquisar.
 </p>
-
-
-<button class="botao"
-        onclick="carregar()">
-
-🔄 Atualizar agora
-
-</button>
-
-
+<a
+    class="botao"
+    href="https://github.com/guiaraujog27-lab/Nome-robo-ps5/actions/workflows/robo.yml"
+    target="_blank"
+    rel="noopener">
+⚙️ ABRIR ROBÔ NO GITHUB
+</a>
 </div>
-
-
 </div>
-
-
 <div class="footer">
-
-Robô PS5 V7<br>
-
-Monitoramento automático de preços
-
+Robô de Preços V8<br>
+Monitoramento automático pelo GitHub Actions
 </div>
-
-
 </div>
-
-
 <script>
-
-
-/* ==========================================
-   ARQUIVOS
-========================================== */
-
-
 const RESULTADO =
     "./resultado.json";
-
-
-const HISTORICO =
-    "./historico.json";
-
-
-/* ==========================================
-   FORMATAÇÃO
-========================================== */
-
-
+const LOJAS = [
+    {
+        nome: "KaBuM!",
+        url: produto =>
+            "https://www.kabum.com.br/busca/" +
+            encodeURIComponent(produto)
+    },
+    {
+        nome: "Pichau",
+        url: produto =>
+            "https://www.pichau.com.br/search?q=" +
+            encodeURIComponent(produto)
+    },
+    {
+        nome: "Terabyte",
+        url: produto =>
+            "https://www.terabyteshop.com.br/busca?str=" +
+            encodeURIComponent(produto)
+    },
+    {
+        nome: "Magazine Luiza",
+        url: produto =>
+            "https://www.magazineluiza.com.br/busca/" +
+            encodeURIComponent(produto)
+    },
+    {
+        nome: "Carrefour",
+        url: produto =>
+            "https://www.carrefour.com.br/busca/" +
+            encodeURIComponent(produto)
+    },
+    {
+        nome: "Mercado Livre",
+        url: produto =>
+            "https://lista.mercadolivre.com.br/" +
+            encodeURIComponent(produto)
+    },
+    {
+        nome: "Amazon",
+        url: produto =>
+            "https://www.amazon.com.br/s?k=" +
+            encodeURIComponent(produto)
+    }
+];
 function dinheiro(valor) {
-
     return Number(valor).toLocaleString(
         "pt-BR",
         {
@@ -683,839 +390,110 @@ function dinheiro(valor) {
             currency: "BRL"
         }
     );
-
 }
-
-
-function seguro(valor) {
-
-    return String(valor ?? "")
+function pesquisar() {
+    const campo =
+        document.getElementById(
+            "produtoInput"
+        );
+    const produto =
+        campo.value.trim();
+    if (!produto) {
+        alert(
+            "Digite o produto que deseja pesquisar."
+        );
+        return;
+    }
+    localStorage.setItem(
+        "produtoPesquisa",
+        produto
+    );
+    document.getElementById(
+        "aviso"
+    ).style.display =
+        "block";
+    mostrarLojas(produto);
+}
+function mostrarLojas(produto) {
+    const div =
+        document.getElementById(
+            "lojas"
+        );
+    div.innerHTML = "";
+    LOJAS.forEach(loja => {
+        const url =
+            loja.url(produto);
+        const item =
+            document.createElement(
+                "div"
+            );
+        item.className =
+            "loja";
+        item.innerHTML = `
+            <div class="loja-nome">
+                🏪 ${loja.nome}
+            </div>
+            <div class="loja-info">
+                Pesquisar "${escapeHTML(produto)}"
+            </div>
+            <a
+                class="botao"
+                href="${url}"
+                target="_blank"
+                rel="noopener">
+                🔎 VER PREÇOS
+            </a>
+        `;
+        div.appendChild(item);
+    });
+}
+function escapeHTML(valor) {
+    return String(valor)
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;")
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#039;");
-
 }
-
-
-/* ==========================================
-   CARREGAR JSON
-========================================== */
-
-
-async function buscarJSON(arquivo) {
-
-    const resposta =
-        await fetch(
-            arquivo +
-            "?t=" +
-            Date.now()
-        );
-
-
-    if (!resposta.ok) {
-
-        throw new Error(
-            "HTTP " +
-            resposta.status +
-            " ao acessar " +
-            arquivo
-        );
-
-    }
-
-
-    const texto =
-        await resposta.text();
-
-
+async function carregarResultado() {
     try {
-
-        return JSON.parse(texto);
-
+        const resposta =
+            await fetch(
+                RESULTADO +
+                "?t=" +
+                Date.now()
+            );
+        if (!resposta.ok) {
+            throw new Error(
+                "resultado.json não encontrado"
+            );
+        }
+        const dados =
+            await resposta.json();
+        mostrarResultado(
+            dados
+        );
     } catch (erro) {
-
-        throw new Error(
-            arquivo +
-            " não contém JSON válido."
-        );
-
-    }
-
-}
-
-
-/* ==========================================
-   HISTÓRICO
-========================================== */
-
-
-function normalizarHistorico(dados) {
-
-    if (!Array.isArray(dados)) {
-
-        return [];
-
-    }
-
-
-    return dados
-        .filter(
-            item =>
-                item &&
-                item.preco !== undefined &&
-                item.preco !== null
-        )
-        .map(
-            item => ({
-
-                data:
-                    item.data ||
-                    item.atualizado ||
-                    "-",
-
-                timestamp:
-                    item.timestamp ||
-                    "",
-
-                produto:
-                    item.produto ||
-                    "PS5 Slim Digital 1TB",
-
-                preco:
-                    Number(item.preco),
-
-                loja:
-                    item.loja ||
-                    "-",
-
-                url:
-                    item.url ||
-                    ""
-
-            })
-        )
-        .filter(
-            item =>
-                Number.isFinite(
-                    item.preco
-                )
-        );
-
-}
-
-
-/* ==========================================
-   ESTATÍSTICAS
-========================================== */
-
-
-function calcularEstatisticas(historico) {
-
-    const precos =
-        historico.map(
-            item =>
-                Number(item.preco)
-        );
-
-
-    if (!precos.length) {
-
-        return null;
-
-    }
-
-
-    const menor =
-        Math.min(...precos);
-
-
-    const maior =
-        Math.max(...precos);
-
-
-    const soma =
-        precos.reduce(
-            (total, valor) =>
-                total + valor,
-            0
-        );
-
-
-    const media =
-        soma / precos.length;
-
-
-    return {
-
-        menor,
-        maior,
-        media,
-        total: precos.length
-
-    };
-
-}
-
-
-/* ==========================================
-   MOSTRAR ESTATÍSTICAS
-========================================== */
-
-
-function mostrarEstatisticas(historico) {
-
-    const estatisticas =
-        calcularEstatisticas(
-            historico
-        );
-
-
-    if (!estatisticas) {
-
-        return;
-
-    }
-
-
-    document.getElementById(
-        "menorHistorico"
-    ).textContent =
-        dinheiro(
-            estatisticas.menor
-        );
-
-
-    document.getElementById(
-        "mediaHistorico"
-    ).textContent =
-        dinheiro(
-            estatisticas.media
-        );
-
-
-    document.getElementById(
-        "maiorHistorico"
-    ).textContent =
-        dinheiro(
-            estatisticas.maior
-        );
-
-
-    document.getElementById(
-        "totalConsultas"
-    ).textContent =
-        estatisticas.total;
-
-}
-
-
-/* ==========================================
-   GRÁFICO
-========================================== */
-
-
-function desenharGrafico(historico) {
-
-    const canvas =
         document.getElementById(
-            "grafico"
-        );
-
-
-    const sem =
-        document.getElementById(
-            "semGrafico"
-        );
-
-
-    if (
-        !historico ||
-        historico.length < 2
-    ) {
-
-        canvas.style.display =
-            "none";
-
-        sem.style.display =
-            "block";
-
-        return;
-
+            "ultimaConsulta"
+        ).innerHTML =
+            "⚠️ Ainda não existe uma consulta automática disponível.";
     }
-
-
-    const registros =
-        historico
-            .slice(-30);
-
-
-    const precos =
-        registros.map(
-            item =>
-                Number(item.preco)
-        );
-
-
-    const menor =
-        Math.min(...precos);
-
-
-    const maior =
-        Math.max(...precos);
-
-
-    const intervalo =
-        maior - menor || 1;
-
-
-    const largura =
-        canvas.parentElement.clientWidth
-        || 700;
-
-
-    const altura =
-        280;
-
-
-    const dpr =
-        window.devicePixelRatio || 1;
-
-
-    canvas.width =
-        largura * dpr;
-
-
-    canvas.height =
-        altura * dpr;
-
-
-    canvas.style.height =
-        altura + "px";
-
-
-    const ctx =
-        canvas.getContext(
-            "2d"
-        );
-
-
-    ctx.scale(
-        dpr,
-        dpr
-    );
-
-
-    const margemEsquerda =
-        50;
-
-
-    const margemDireita =
-        15;
-
-
-    const margemTopo =
-        25;
-
-
-    const margemBaixo =
-        35;
-
-
-    const larguraGrafico =
-        largura -
-        margemEsquerda -
-        margemDireita;
-
-
-    const alturaGrafico =
-        altura -
-        margemTopo -
-        margemBaixo;
-
-
-    /* eixo vertical */
-
-    ctx.beginPath();
-
-    ctx.moveTo(
-        margemEsquerda,
-        margemTopo
-    );
-
-    ctx.lineTo(
-        margemEsquerda,
-        altura - margemBaixo
-    );
-
-    ctx.lineTo(
-        largura - margemDireita,
-        altura - margemBaixo
-    );
-
-    ctx.stroke();
-
-
-    /* linhas horizontais */
-
-    for (
-        let i = 0;
-        i <= 4;
-        i++
-    ) {
-
-        const y =
-            margemTopo +
-            (
-                i / 4
-            ) *
-            alturaGrafico;
-
-
-        ctx.beginPath();
-
-        ctx.moveTo(
-            margemEsquerda,
-            y
-        );
-
-        ctx.lineTo(
-            largura -
-            margemDireita,
-            y
-        );
-
-        ctx.strokeStyle =
-            "#e5e7eb";
-
-        ctx.stroke();
-
-    }
-
-
-    ctx.strokeStyle =
-        "#111827";
-
-
-    /* linha do gráfico */
-
-    ctx.beginPath();
-
-
-    registros.forEach(
-        (item, index) => {
-
-            const x =
-                margemEsquerda +
-                (
-                    index /
-                    (
-                        registros.length -
-                        1
-                    )
-                ) *
-                larguraGrafico;
-
-
-            const y =
-                altura -
-                margemBaixo -
-                (
-                    (
-                        Number(item.preco)
-                        -
-                        menor
-                    )
-                    /
-                    intervalo
-                )
-                *
-                alturaGrafico;
-
-
-            if (index === 0) {
-
-                ctx.moveTo(
-                    x,
-                    y
-                );
-
-            } else {
-
-                ctx.lineTo(
-                    x,
-                    y
-                );
-
-            }
-
-        }
-    );
-
-
-    ctx.lineWidth =
-        3;
-
-
-    ctx.strokeStyle =
-        "#111827";
-
-
-    ctx.stroke();
-
-
-    /* pontos */
-
-    registros.forEach(
-        (item, index) => {
-
-            const x =
-                margemEsquerda +
-                (
-                    index /
-                    (
-                        registros.length -
-                        1
-                    )
-                ) *
-                larguraGrafico;
-
-
-            const y =
-                altura -
-                margemBaixo -
-                (
-                    (
-                        Number(item.preco)
-                        -
-                        menor
-                    )
-                    /
-                    intervalo
-                )
-                *
-                alturaGrafico;
-
-
-            ctx.beginPath();
-
-            ctx.arc(
-                x,
-                y,
-                4,
-                0,
-                Math.PI * 2
-            );
-
-
-            ctx.fillStyle =
-                "#111827";
-
-
-            ctx.fill();
-
-        }
-    );
-
-
-    /* valores */
-
-    ctx.font =
-        "12px Arial";
-
-
-    ctx.fillStyle =
-        "#6b7280";
-
-
-    ctx.fillText(
-        dinheiro(maior),
-        5,
-        15
-    );
-
-
-    ctx.fillText(
-        dinheiro(menor),
-        5,
-        altura - 5
-    );
-
 }
-
-
-/* ==========================================
-   TABELA DO HISTÓRICO
-========================================== */
-
-
-function mostrarTabelaHistorico(
-    historico
-) {
-
-    const tabela =
-        document.getElementById(
-            "tabelaHistorico"
-        );
-
-
-    tabela.innerHTML =
-        "";
-
-
-    const registros =
-        historico
-            .slice()
-            .reverse()
-            .slice(0, 30);
-
-
-    if (!registros.length) {
-
-        tabela.innerHTML = `
-
-            <tr>
-
-                <td colspan="3">
-
-                    Nenhum histórico encontrado.
-
-                </td>
-
-            </tr>
-
-        `;
-
-        return;
-
-    }
-
-
-    registros.forEach(
-        item => {
-
-            const tr =
-                document.createElement(
-                    "tr"
-                );
-
-
-            tr.innerHTML = `
-
-                <td>
-                    ${seguro(item.data)}
-                </td>
-
-                <td>
-                    ${seguro(item.loja)}
-                </td>
-
-                <td>
-                    <strong>
-                        ${dinheiro(item.preco)}
-                    </strong>
-                </td>
-
-            `;
-
-
-            tabela.appendChild(
-                tr
-            );
-
-        }
-    );
-
-}
-
-
-/* ==========================================
-   TABELA DAS LOJAS
-========================================== */
-
-
-function mostrarOfertas(
-    resultado
-) {
-
-    const tabela =
-        document.getElementById(
-            "tabelaOfertas"
-        );
-
-
-    tabela.innerHTML =
-        "";
-
-
-    const ofertas =
-        Array.isArray(
-            resultado.ofertas
-        )
-        ? resultado.ofertas
-        : [];
-
-
-    const limite =
-        Number(
-            resultado.preco_maximo ||
-            3500
-        );
-
-
-    if (!ofertas.length) {
-
-        tabela.innerHTML = `
-
-            <tr>
-
-                <td colspan="3">
-
-                    Nenhuma oferta encontrada.
-
-                </td>
-
-            </tr>
-
-        `;
-
-        return;
-
-    }
-
-
-    ofertas.forEach(
-        item => {
-
-            const tr =
-                document.createElement(
-                    "tr"
-                );
-
-
-            let preco =
-                "—";
-
-
-            if (
-                item.preco !== undefined &&
-                item.preco !== null
-            ) {
-
-                preco =
-                    dinheiro(
-                        item.preco
-                    );
-
-            }
-
-
-            let status =
-                "—";
-
-
-            if (
-                item.status ===
-                "bloqueada"
-            ) {
-
-                status =
-                    `<span class="badge badge-red">
-                        🚫 Bloqueada
-                    </span>`;
-
-            } else if (
-                item.preco !== undefined &&
-                Number(item.preco) <= limite
-            ) {
-
-                status =
-                    `<span class="badge badge-green">
-                        🔥 Oferta
-                    </span>`;
-
-            } else if (
-                item.preco !== undefined
-            ) {
-
-                status =
-                    `<span class="badge badge-gray">
-                        Normal
-                    </span>`;
-
-            }
-
-
-            tr.innerHTML = `
-
-                <td>
-                    ${seguro(
-                        item.loja ||
-                        "-"
-                    )}
-                </td>
-
-                <td>
-                    <strong>
-                        ${preco}
-                    </strong>
-                </td>
-
-                <td>
-                    ${status}
-                </td>
-
-            `;
-
-
-            tabela.appendChild(
-                tr
-            );
-
-        }
-    );
-
-}
-
-
-/* ==========================================
-   MOSTRAR RESULTADO
-========================================== */
-
-
-function mostrarResultado(
-    resultado
-) {
-
+function mostrarResultado(dados) {
+    document.getElementById(
+        "resultado"
+    ).style.display =
+        "block";
     document.getElementById(
         "produto"
     ).textContent =
-        resultado.produto ||
-        "PS5 Slim Digital 1TB";
-
-
-    const limite =
-        Number(
-            resultado.preco_maximo ||
-            3500
-        );
-
-
-    document.getElementById(
-        "limite"
-    ).textContent =
-        dinheiro(limite);
-
-
+        dados.produto ||
+        "Produto";
     const ofertas =
-        Array.isArray(
-            resultado.ofertas
-        )
-        ? resultado.ofertas
+        Array.isArray(dados.ofertas)
+        ? dados.ofertas
         : [];
-
-
     const validas =
         ofertas
             .filter(
@@ -1528,387 +506,157 @@ function mostrarResultado(
                     Number(a.preco) -
                     Number(b.preco)
             );
-
-
     let menor =
-        resultado.menor_preco !== undefined &&
-        resultado.menor_preco !== null
-        ? Number(
-            resultado.menor_preco
-        )
-        : null;
-
-
+        dados.menor_preco;
     if (
-        menor === null &&
+        menor === undefined &&
         validas.length
     ) {
-
         menor =
-            Number(
-                validas[0].preco
-            );
-
+            validas[0].preco;
     }
-
-
-    const preco =
+    if (menor !== undefined) {
         document.getElementById(
             "preco"
-        );
-
-
-    if (menor !== null) {
-
-        preco.textContent =
+        ).textContent =
             dinheiro(menor);
-
-
-        preco.className =
-            "preco " +
-            (
-                menor <= limite
-                ? "verde"
-                : "vermelho"
-            );
-
-    } else {
-
-        preco.textContent =
-            "Não encontrado";
-
-        preco.className =
-            "preco cinza";
-
     }
-
-
-    const card =
-        document.getElementById(
-            "cardProduto"
-        );
-
-
-    const status =
-        document.getElementById(
-            "status"
-        );
-
-
-    if (
-        menor !== null &&
-        menor <= limite
-    ) {
-
-        card.classList.add(
-            "oferta"
-        );
-
-
-        status.innerHTML = `
-
-            <span class="badge badge-green">
-
-                🔥 OFERTA ABAIXO DO LIMITE
-
-            </span>
-
-        `;
-
-    } else {
-
-        card.classList.remove(
-            "oferta"
-        );
-
-
-        status.innerHTML = `
-
-            <span class="badge badge-gray">
-
-                Preço acima do limite
-
-            </span>
-
-        `;
-
-    }
-
-
-    const loja =
+    if (validas.length) {
+        const melhor =
+            validas[0];
         document.getElementById(
             "loja"
-        );
-
-
-    const link =
-        document.getElementById(
-            "linkOferta"
-        );
-
-
-    if (validas.length) {
-
-        const primeira =
-            validas[0];
-
-
-        loja.textContent =
+        ).textContent =
             "🏪 " +
-            (
-                primeira.loja ||
-                "Loja"
-            );
-
-
-        if (primeira.url) {
-
+            melhor.loja;
+        if (melhor.url) {
+            const link =
+                document.getElementById(
+                    "oferta"
+                );
             link.href =
-                primeira.url;
-
+                melhor.url;
             link.style.display =
-                "inline-block";
-
+                "block";
         }
-
-    } else {
-
-        loja.textContent =
-            "🏪 Nenhuma oferta disponível";
-
-        link.style.display =
-            "none";
-
     }
-
-
-    document.getElementById(
-        "economia"
-    ).textContent =
-        (
-            menor !== null &&
-            menor < limite
-        )
-        ? dinheiro(
-            limite - menor
-        )
-        : "R$ 0,00";
-
-
-    document.getElementById(
-        "quantidade"
-    ).textContent =
-        validas.length;
-
-
-    document.getElementById(
-        "oferta"
-    ).textContent =
-        (
-            menor !== null &&
-            menor <= limite
-        )
-        ? "🔥 SIM"
-        : "NÃO";
-
-
-    document.getElementById(
-        "atualizado"
-    ).textContent =
-        "🕐 Última atualização: " +
-        (
-            resultado.atualizado ||
-            "-"
+    const precos =
+        validas.map(
+            item =>
+                Number(item.preco)
         );
-
-
-    mostrarOfertas(
-        resultado
-    );
-
-}
-
-
-/* ==========================================
-   CARREGAR TUDO
-========================================== */
-
-
-async function carregar() {
-
-    const loading =
+    if (precos.length) {
+        const maior =
+            Math.max(...precos);
+        const media =
+            precos.reduce(
+                (a,b) => a + b,
+                0
+            ) /
+            precos.length;
         document.getElementById(
-            "loading"
-        );
-
-
-    const erro =
-        document.getElementById(
-            "erro"
-        );
-
-
-    const painel =
-        document.getElementById(
-            "painel"
-        );
-
-
-    loading.style.display =
-        "block";
-
-
-    erro.style.display =
-        "none";
-
-
-    try {
-
-        const resultado =
-            await buscarJSON(
-                RESULTADO
+            "menor"
+        ).textContent =
+            dinheiro(
+                Math.min(...precos)
             );
-
-
-        mostrarResultado(
-            resultado
-        );
-
-
-        let historico =
-            [];
-
-
-        try {
-
-            const dadosHistorico =
-                await buscarJSON(
-                    HISTORICO
-                );
-
-
-            historico =
-                normalizarHistorico(
-                    dadosHistorico
-                );
-
-        } catch {
-
-            historico =
-                [];
-
-        }
-
-
-        mostrarEstatisticas(
-            historico
-        );
-
-
-        mostrarTabelaHistorico(
-            historico
-        );
-
-
-        desenharGrafico(
-            historico
-        );
-
-
-        loading.style.display =
-            "none";
-
-
-        painel.style.display =
-            "block";
-
-
-    } catch (e) {
-
-        loading.style.display =
-            "none";
-
-
-        erro.style.display =
-            "block";
-
-
-        erro.innerHTML = `
-
-            <div class="erro">
-
-                ❌ Não foi possível carregar
-                os dados do robô.
-
-                <br><br>
-
-                ${seguro(e.message)}
-
-                <br><br>
-
-                Arquivo:
-
-                <br>
-
-                resultado.json
-
-            </div>
-
-        `;
-
+        document.getElementById(
+            "maior"
+        ).textContent =
+            dinheiro(maior);
+        document.getElementById(
+            "media"
+        ).textContent =
+            dinheiro(media);
+        document.getElementById(
+            "total"
+        ).textContent =
+            precos.length;
     }
-
+    const limite =
+        Number(
+            dados.preco_maximo ||
+            3500
+        );
+    if (
+        menor !== undefined &&
+        Number(menor) <= limite
+    ) {
+        document.getElementById(
+            "status"
+        ).innerHTML = `
+            <span class="badge badge-green">
+                🔥 OFERTA ENCONTRADA
+            </span>
+        `;
+    } else {
+        document.getElementById(
+            "status"
+        ).innerHTML = `
+            <span class="badge badge-gray">
+                Preço acima do limite
+            </span>
+        `;
+    }
+    document.getElementById(
+        "ultimaConsulta"
+    ).innerHTML = `
+        🕐 Atualizado:
+        <strong>
+            ${escapeHTML(
+                dados.atualizado ||
+                "-"
+            )}
+        </strong>
+        <br><br>
+        🎯 Limite:
+        <strong>
+            ${dinheiro(limite)}
+        </strong>
+    `;
+    const produto =
+        dados.produto;
+    if (produto) {
+        document.getElementById(
+            "produtoInput"
+        ).value =
+            produto;
+        mostrarLojas(
+            produto
+        );
+    }
 }
-
-
-/* ==========================================
-   INICIAR
-========================================== */
-
-
-carregar();
-
-
-/* Atualização automática */
-
+const salvo =
+    localStorage.getItem(
+        "produtoPesquisa"
+    );
+if (salvo) {
+    document.getElementById(
+        "produtoInput"
+    ).value =
+        salvo;
+    mostrarLojas(
+        salvo
+    );
+}
+carregarResultado();
 setInterval(
-    carregar,
+    carregarResultado,
     5 * 60 * 1000
 );
-
-
-/* Redesenhar gráfico ao mudar
-   tamanho da tela */
-
-window.addEventListener(
-    "resize",
-    async () => {
-
-        try {
-
-            const dados =
-                await buscarJSON(
-                    HISTORICO
-                );
-
-
-            const historico =
-                normalizarHistorico(
-                    dados
-                );
-
-
-            desenharGrafico(
-                historico
-            );
-
-        } catch {}
-
+document.getElementById(
+    "produtoInput"
+).addEventListener(
+    "keydown",
+    function(event) {
+        if (
+            event.key ===
+            "Enter"
+        ) {
+            pesquisar();
+        }
     }
 );
-
 </script>
-
 </body>
-
 </html>
