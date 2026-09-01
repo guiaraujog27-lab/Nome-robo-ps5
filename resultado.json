@@ -1,65 +1,64 @@
 {
   "produto": "PS5 Slim Digital 1TB",
-  "preco_maximo": 3500.0,
-  "atualizado": "01/09/2026 14:13:15",
-  "menor_preco": 107.0,
-  "oferta_encontrada": true,
+  "preco_maximo": 3700.0,
+  "atualizado": "01/09/2026 16:32:48",
+  "menor_preco": 4559.16,
+  "melhor_loja": "KaBuM!",
+  "melhor_url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
+  "oferta_encontrada": false,
   "ofertas": [
     {
       "loja": "KaBuM!",
-      "titulo": "KaBuM! | Maior E-commerce de Tecnologia e Games da América Latina",
-      "preco": 4559.0,
+      "titulo": "Console Playstation 5 Sony Slim, SSD 1TB, Controle Sem Fio Dualsense, Edição Digital, Branco, Returnal E Ratchet E Clank",
+      "preco": 4559.16,
       "url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
-      "status": "encontrado"
+      "status": "encontrado",
+      "confianca": 47,
+      "origem": "JSON-LD"
     },
     {
       "loja": "Pichau",
+      "url": "https://www.pichau.com.br/search?q=PS5%20Slim%20Digital%201TB",
       "status": "bloqueada",
       "erro": "HTTP 403"
     },
     {
       "loja": "Terabyte",
-      "titulo": "Busca : PS5 Slim Digital 1TB - TERABYTE",
-      "preco": 107.0,
       "url": "https://www.terabyteshop.com.br/busca?str=PS5%20Slim%20Digital%201TB",
-      "status": "encontrado"
+      "status": "sem_preco"
     },
     {
       "loja": "Magazine Luiza",
+      "url": "https://www.magazineluiza.com.br/busca/PS5%20Slim%20Digital%201TB",
       "status": "bloqueada",
       "erro": "HTTP 403"
     },
     {
       "loja": "Carrefour",
+      "url": "https://www.carrefour.com.br/busca/PS5%20Slim%20Digital%201TB",
       "status": "bloqueada",
       "erro": "HTTP 403"
     },
     {
       "loja": "Mercado Livre",
-      "titulo": "Mercado Libre",
       "url": "https://lista.mercadolivre.com.br/PS5%20Slim%20Digital%201TB",
       "status": "sem_preco"
     },
     {
       "loja": "Amazon",
-      "status": "erro",
-      "erro": "HTTP 503"
+      "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
+      "status": "sem_preco"
     }
   ],
   "ranking": [
     {
-      "loja": "Terabyte",
-      "titulo": "Busca : PS5 Slim Digital 1TB - TERABYTE",
-      "preco": 107.0,
-      "url": "https://www.terabyteshop.com.br/busca?str=PS5%20Slim%20Digital%201TB",
-      "status": "encontrado"
-    },
-    {
       "loja": "KaBuM!",
-      "titulo": "KaBuM! | Maior E-commerce de Tecnologia e Games da América Latina",
-      "preco": 4559.0,
+      "titulo": "Console Playstation 5 Sony Slim, SSD 1TB, Controle Sem Fio Dualsense, Edição Digital, Branco, Returnal E Ratchet E Clank",
+      "preco": 4559.16,
       "url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
-      "status": "encontrado"
+      "status": "encontrado",
+      "confianca": 47,
+      "origem": "JSON-LD"
     }
   ]
 }
