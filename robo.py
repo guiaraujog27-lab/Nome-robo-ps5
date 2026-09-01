@@ -9,20 +9,22 @@ from bs4 import BeautifulSoup
 
 
 # ==========================================================
-# CONFIGURAÇÃO
+# ROBÔ DE PREÇOS V8
 # ==========================================================
 
 PRODUTO_PADRAO = "PS5 Slim Digital 1TB"
 
 produto = (
-    os.getenv("PRODUTO")
-    or PRODUTO_PADRAO
+    os.getenv("PRODUTO") or PRODUTO_PADRAO
 ).strip()
 
-
-PRECO_MAXIMO = float(
-    os.getenv("PRECO_MAXIMO", "3500")
-)
+try:
+    preco_maximo = float(
+        os.getenv("PRECO_MAXIMO", "3500")
+        .replace(",", ".")
+    )
+except ValueError:
+    preco_maximo = 3500.0
 
 
 ARQUIVO_RESULTADO = "resultado.json"
@@ -45,86 +47,69 @@ HEADERS = {
 # ==========================================================
 
 LOJAS = [
-
     {
         "nome": "KaBuM!",
         "url": lambda p:
-            "https://www.kabum.com.br/busca/" +
-            quote(p),
+            "https://www.kabum.com.br/busca/" + quote(p),
     },
 
     {
         "nome": "Pichau",
         "url": lambda p:
-            "https://www.pichau.com.br/search?q=" +
-            quote(p),
+            "https://www.pichau.com.br/search?q=" + quote(p),
     },
 
     {
         "nome": "Terabyte",
         "url": lambda p:
-            "https://www.terabyteshop.com.br/busca?str=" +
-            quote(p),
+            "https://www.terabyteshop.com.br/busca?str=" + quote(p),
     },
 
     {
         "nome": "Magazine Luiza",
         "url": lambda p:
-            "https://www.magazineluiza.com.br/busca/" +
-            quote(p),
+            "https://www.magazineluiza.com.br/busca/" + quote(p),
     },
 
     {
         "nome": "Carrefour",
         "url": lambda p:
-            "https://www.carrefour.com.br/busca/" +
-            quote(p),
+            "https://www.carrefour.com.br/busca/" + quote(p),
     },
 
     {
         "nome": "Mercado Livre",
         "url": lambda p:
-            "https://lista.mercadolivre.com.br/" +
-            quote(p),
+            "https://lista.mercadolivre.com.br/" + quote(p),
     },
 
     {
         "nome": "Amazon",
         "url": lambda p:
-            "https://www.amazon.com.br/s?k=" +
-            quote(p),
+            "https://www.amazon.com.br/s?k=" + quote(p),
     },
-
 ]
 
 
 # ==========================================================
-# FUNÇÕES
+# PREÇO
 # ==========================================================
 
-def moeda(valor):
-    return round(float(valor), 2)
-
-
 def extrair_preco(texto):
-
     if not texto:
         return None
 
     texto = texto.replace("\xa0", " ")
 
     padroes = [
-
-        r"R\$\s*([\d\.\,]+)",
-
-        r"R\$\s*([\d]+(?:[\.,]\d{2})?)",
-
+        r"R\$\s*([\d\.]+,\d{2})",
+        r"R\$\s*([\d]+,\d{2})",
+        r"R\$\s*([\d\.]+)",
     ]
 
     valores = []
 
     for padrao in padroes:
-
         encontrados = re.findall(
             padrao,
             texto,
@@ -132,140 +117,107 @@ def extrair_preco(texto):
         )
 
         for valor in encontrados:
-
-            valor = valor.strip()
-
             try:
+                valor = valor.strip()
 
                 if "," in valor:
-
                     valor = (
                         valor
                         .replace(".", "")
                         .replace(",", ".")
                     )
-
                 else:
-
-                    partes = valor.split(".")
-
-                    if (
-                        len(partes) > 1
-                        and len(partes[-1]) == 2
-                    ):
-                        valor = valor
-
-                    else:
-                        valor = valor.replace(".", "")
+                    valor = valor.replace(".", "")
 
                 numero = float(valor)
 
-                if (
-                    numero > 100
-                    and numero < 100000
-                ):
+                if 100 <= numero <= 100000:
                     valores.append(numero)
 
-            except Exception:
-                pass
+            except (ValueError, TypeError):
+                continue
 
     if not valores:
         return None
 
-    return min(valores)
+    return round(min(valores), 2)
 
+
+# ==========================================================
+# TÍTULO
+# ==========================================================
 
 def extrair_titulo(soup, produto):
-
     meta = soup.find(
         "meta",
-        attrs={
-            "property": "og:title"
-        }
+        attrs={"property": "og:title"}
     )
 
     if meta and meta.get("content"):
         return meta["content"].strip()
 
-
     if soup.title:
-
-        titulo =
-            soup.title.get_text(
-                " ",
-                strip=True
-            )
+        titulo = soup.title.get_text(
+            " ",
+            strip=True
+        )
 
         if titulo:
             return titulo
 
-
     return produto
 
 
+# ==========================================================
+# CONSULTAR LOJA
+# ==========================================================
+
 def extrair_oferta(url, nome_loja):
+    print()
+    print(f"Consultando: {nome_loja}")
+    print(url)
 
     try:
-
         resposta = requests.get(
             url,
             headers=HEADERS,
-            timeout=20,
+            timeout=25
         )
 
-
-        print(
-            f"Consultando: {nome_loja}"
-        )
-
-        print(
-            f"Status: {resposta.status_code}"
-        )
-
+        print(f"Status: {resposta.status_code}")
 
         if resposta.status_code == 403:
-
             return {
                 "loja": nome_loja,
                 "status": "bloqueada",
                 "erro": "HTTP 403",
             }
 
-
         if resposta.status_code != 200:
-
             return {
                 "loja": nome_loja,
                 "status": "erro",
-                "erro":
-                    f"HTTP {resposta.status_code}",
+                "erro": f"HTTP {resposta.status_code}",
             }
-
 
         soup = BeautifulSoup(
             resposta.text,
             "html.parser"
         )
 
+        titulo = extrair_titulo(
+            soup,
+            produto
+        )
 
-        titulo =
-            extrair_titulo(
-                soup,
-                produto
-            )
+        texto = soup.get_text(
+            " ",
+            strip=True
+        )
 
-
-        preco =
-            extrair_preco(
-                soup.get_text(
-                    " ",
-                    strip=True
-                )
-            )
-
+        preco = extrair_preco(texto)
 
         if preco is None:
-
             return {
                 "loja": nome_loja,
                 "titulo": titulo,
@@ -273,27 +225,22 @@ def extrair_oferta(url, nome_loja):
                 "status": "sem_preco",
             }
 
-
         return {
             "loja": nome_loja,
             "titulo": titulo,
-            "preco": moeda(preco),
+            "preco": preco,
             "url": url,
             "status": "encontrado",
         }
 
-
     except requests.RequestException as erro:
-
         return {
             "loja": nome_loja,
             "status": "erro",
             "erro": str(erro),
         }
-
 
     except Exception as erro:
-
         return {
             "loja": nome_loja,
             "status": "erro",
@@ -302,38 +249,33 @@ def extrair_oferta(url, nome_loja):
 
 
 # ==========================================================
-# PESQUISA
+# INÍCIO
 # ==========================================================
 
 print()
-print("=" * 55)
+print("=" * 60)
 print("ROBÔ DE PREÇOS V8")
-print("=" * 55)
+print("=" * 60)
 print()
-print("Produto:")
-print(produto)
+print(f"Produto pesquisado: {produto}")
+print(f"Preço máximo: R$ {preco_maximo:.2f}")
 print()
-print(
-    f"Limite: R$ {PRECO_MAXIMO:.2f}"
-)
-print("=" * 55)
+print("=" * 60)
 
+
+# ==========================================================
+# PESQUISAR
+# ==========================================================
 
 ofertas = []
 
-
 for loja in LOJAS:
-
-    resultado =
-        extrair_oferta(
-            loja["url"](produto),
-            loja["nome"]
-        )
-
-
-    ofertas.append(
-        resultado
+    resultado = extrair_oferta(
+        loja["url"](produto),
+        loja["nome"]
     )
+
+    ofertas.append(resultado)
 
 
 # ==========================================================
@@ -341,83 +283,60 @@ for loja in LOJAS:
 # ==========================================================
 
 validas = [
-
     oferta
-
     for oferta in ofertas
-
     if (
-        oferta.get("status") ==
-        "encontrado"
-
-        and
-
-        oferta.get("preco")
-        is not None
+        oferta.get("status") == "encontrado"
+        and oferta.get("preco") is not None
     )
-
 ]
 
-
 validas.sort(
-    key=lambda item:
-        float(item["preco"])
+    key=lambda item: float(item["preco"])
 )
-
 
 ranking = validas
 
 
-menor_preco = (
-    ranking[0]["preco"]
-    if ranking
-    else None
-)
+# ==========================================================
+# MENOR PREÇO
+# ==========================================================
+
+if ranking:
+    menor_preco = ranking[0]["preco"]
+else:
+    menor_preco = None
 
 
 oferta_encontrada = (
-
     menor_preco is not None
-
-    and
-
-    menor_preco <= PRECO_MAXIMO
-
+    and menor_preco <= preco_maximo
 )
 
 
 # ==========================================================
-# RESULTADO
+# DATA
 # ==========================================================
 
 agora = datetime.now()
 
+data_formatada = agora.strftime(
+    "%d/%m/%Y %H:%M:%S"
+)
+
+
+# ==========================================================
+# RESULTADO.JSON
+# ==========================================================
 
 resultado = {
-
-    "produto":
-        produto,
-
-    "preco_maximo":
-        PRECO_MAXIMO,
-
-    "atualizado":
-        agora.strftime(
-            "%d/%m/%Y %H:%M:%S"
-        ),
-
-    "menor_preco":
-        menor_preco,
-
-    "oferta_encontrada":
-        oferta_encontrada,
-
-    "ofertas":
-        ofertas,
-
-    "ranking":
-        ranking,
-
+    "produto": produto,
+    "preco_maximo": preco_maximo,
+    "atualizado": data_formatada,
+    "menor_preco": menor_preco,
+    "oferta_encontrada": oferta_encontrada,
+    "ofertas": ofertas,
+    "ranking": ranking,
 }
 
 
@@ -426,7 +345,6 @@ with open(
     "w",
     encoding="utf-8"
 ) as arquivo:
-
     json.dump(
         resultado,
         arquivo,
@@ -441,72 +359,35 @@ with open(
 
 historico = []
 
-
-if os.path.exists(
-    ARQUIVO_HISTORICO
-):
-
+if os.path.exists(ARQUIVO_HISTORICO):
     try:
-
         with open(
             ARQUIVO_HISTORICO,
             "r",
             encoding="utf-8"
         ) as arquivo:
+            historico = json.load(arquivo)
 
-            historico =
-                json.load(
-                    arquivo
-                )
-
-
-        if not isinstance(
-            historico,
-            list
-        ):
+        if not isinstance(historico, list):
             historico = []
 
-
     except Exception:
-
         historico = []
 
 
 if ranking:
-
-    melhor =
-        ranking[0]
-
+    melhor = ranking[0]
 
     historico.append({
-
-        "data":
-            agora.strftime(
-                "%d/%m/%Y %H:%M:%S"
-            ),
-
-        "timestamp":
-            agora.isoformat(),
-
-        "produto":
-            produto,
-
-        "preco":
-            melhor["preco"],
-
-        "loja":
-            melhor["loja"],
-
-        "url":
-            melhor["url"],
-
+        "data": data_formatada,
+        "timestamp": agora.isoformat(),
+        "produto": produto,
+        "preco": melhor["preco"],
+        "loja": melhor["loja"],
+        "url": melhor["url"],
     })
 
-
-    # Mantém as últimas 500 consultas
-
-    historico =
-        historico[-500:]
+    historico = historico[-500:]
 
 
 with open(
@@ -514,7 +395,6 @@ with open(
     "w",
     encoding="utf-8"
 ) as arquivo:
-
     json.dump(
         historico,
         arquivo,
@@ -528,9 +408,10 @@ with open(
 # ==========================================================
 
 print()
-print("=" * 55)
+print("=" * 60)
 print("RESULTADO")
-print("=" * 55)
+print("=" * 60)
+print()
 
 
 if ranking:
@@ -539,48 +420,36 @@ if ranking:
         ranking,
         start=1
     ):
-
         print(
-            f"{indice}º "
-            f"{oferta['loja']}: "
+            f"{indice}º {oferta['loja']}: "
             f"R$ {oferta['preco']:.2f}"
         )
 
-
     print()
 
+    print(
+        f"Menor preço: R$ {menor_preco:.2f}"
+    )
+
+    print(
+        f"Limite: R$ {preco_maximo:.2f}"
+    )
 
     if oferta_encontrada:
-
-        print(
-            "🔥 OFERTA ENCONTRADA!"
-        )
-
-        print(
-            f"R$ {menor_preco:.2f}"
-        )
-
+        print()
+        print("🔥 OFERTA ENCONTRADA!")
     else:
-
-        print(
-            "Preço encontrado, "
-            "mas acima do limite."
-        )
-
+        print()
+        print("Preço encontrado, mas acima do limite.")
 
 else:
 
     print(
-        "Nenhuma oferta com preço "
-        "foi encontrada."
+        "Nenhuma oferta com preço foi encontrada."
     )
 
 
 print()
-print(
-    "resultado.json criado."
-)
-
-print(
-    "historico.json atualizado."
-)
+print("resultado.json criado.")
+print("historico.json atualizado.")
+print()
