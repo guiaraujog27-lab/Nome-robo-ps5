@@ -17,22 +17,50 @@ PARAMETROS = {
     "limit": 20
 }
 
-
 # ==========================================
-# BUSCAR PRODUTOS
+# BUSCAR MERCADO LIVRE
 # ==========================================
 
 def buscar():
 
-    resposta = requests.get(
-        API,
-        params=PARAMETROS,
-        timeout=30
-    )
+    headers = {
+        "User-Agent": "Mozilla/5.0"
+    }
 
-    resposta.raise_for_status()
+    try:
 
-    return resposta.json()
+        resposta = requests.get(
+            API,
+            params=PARAMETROS,
+            headers=headers,
+            timeout=30
+        )
+
+        print("Status da API:", resposta.status_code)
+
+        if resposta.status_code != 200:
+
+            print(
+                "⚠️ Mercado Livre recusou a consulta."
+            )
+
+            print(
+                "O robô continuará funcionando."
+            )
+
+            return []
+
+        return resposta.json()
+
+    except Exception as erro:
+
+        print(
+            "⚠️ Erro ao consultar Mercado Livre:"
+        )
+
+        print(erro)
+
+        return {}
 
 
 # ==========================================
@@ -43,7 +71,10 @@ def filtrar(dados):
 
     ofertas = []
 
-    for item in dados.get("results", []):
+    for item in dados.get(
+        "results",
+        []
+    ):
 
         titulo = item.get(
             "title",
@@ -62,9 +93,6 @@ def filtrar(dados):
             continue
 
         titulo_lower = titulo.lower()
-
-        # Procurar apenas anúncios
-        # relacionados ao PS5
 
         if "ps5" not in titulo_lower:
             continue
@@ -145,9 +173,10 @@ def salvar(ofertas):
 
 def main():
 
-    print("================================")
+    print()
+    print("==============================")
     print("🎮 ROBÔ DE PREÇOS PS5")
-    print("================================")
+    print("==============================")
 
     print(
         "🔎 Procurando:",
@@ -156,9 +185,21 @@ def main():
 
     dados = buscar()
 
+    if not dados:
+
+        print()
+        print(
+            "❌ Não foi possível consultar "
+            "o Mercado Livre agora."
+        )
+
+        salvar([])
+
+        return
+
     ofertas = filtrar(dados)
 
-    resultado = salvar(ofertas)
+    salvar(ofertas)
 
     print()
 
@@ -194,6 +235,11 @@ def main():
         print(
             f"👤 "
             f"{oferta['vendedor']}"
+        )
+
+        print(
+            f"📦 "
+            f"{oferta['condicao']}"
         )
 
         print(
