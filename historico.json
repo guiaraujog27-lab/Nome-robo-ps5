@@ -22,5 +22,13 @@
     "preco": 105.0,
     "loja": "Terabyte",
     "url": "https://www.terabyteshop.com.br/busca?str=Iphone%2017%20pro%20max"
+  },
+  {
+    "data": "01/09/2026 06:17:06",
+    "timestamp": "2026-09-01T06:17:06.949185",
+    "produto": "PS5 Slim Digital 1TB",
+    "preco": 101.0,
+    "loja": "Amazon",
+    "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB"
   }
 ]
