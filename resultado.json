@@ -1,15 +1,15 @@
 {
-  "produto": "PS5 Slim Digital 1TB",
-  "preco_maximo": 3900.0,
-  "atualizado": "01/09/2026 05:19:07",
-  "menor_preco": 107.0,
+  "produto": "Iphone 17 pro max",
+  "preco_maximo": 6500.0,
+  "atualizado": "01/09/2026 05:22:38",
+  "menor_preco": 105.0,
   "oferta_encontrada": true,
   "ofertas": [
     {
       "loja": "KaBuM!",
       "titulo": "KaBuM! | Maior E-commerce de Tecnologia e Games da América Latina",
-      "preco": 4499.0,
-      "url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
+      "preco": 20554.0,
+      "url": "https://www.kabum.com.br/busca/Iphone%2017%20pro%20max",
       "status": "encontrado"
     },
     {
@@ -19,9 +19,9 @@
     },
     {
       "loja": "Terabyte",
-      "titulo": "Busca : PS5 Slim Digital 1TB - TERABYTE",
-      "preco": 107.0,
-      "url": "https://www.terabyteshop.com.br/busca?str=PS5%20Slim%20Digital%201TB",
+      "titulo": "Busca : Iphone 17 pro max - TERABYTE",
+      "preco": 105.0,
+      "url": "https://www.terabyteshop.com.br/busca?str=Iphone%2017%20pro%20max",
       "status": "encontrado"
     },
     {
@@ -37,29 +37,37 @@
     {
       "loja": "Mercado Livre",
       "titulo": "Mercado Libre",
-      "url": "https://lista.mercadolivre.com.br/PS5%20Slim%20Digital%201TB",
+      "url": "https://lista.mercadolivre.com.br/Iphone%2017%20pro%20max",
       "status": "sem_preco"
     },
     {
       "loja": "Amazon",
-      "titulo": "PS5 Slim Digital 1TB",
-      "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
-      "status": "sem_preco"
+      "titulo": "Amazon.com.br : Iphone 17 pro max",
+      "preco": 109.0,
+      "url": "https://www.amazon.com.br/s?k=Iphone%2017%20pro%20max",
+      "status": "encontrado"
     }
   ],
   "ranking": [
     {
       "loja": "Terabyte",
-      "titulo": "Busca : PS5 Slim Digital 1TB - TERABYTE",
-      "preco": 107.0,
-      "url": "https://www.terabyteshop.com.br/busca?str=PS5%20Slim%20Digital%201TB",
+      "titulo": "Busca : Iphone 17 pro max - TERABYTE",
+      "preco": 105.0,
+      "url": "https://www.terabyteshop.com.br/busca?str=Iphone%2017%20pro%20max",
+      "status": "encontrado"
+    },
+    {
+      "loja": "Amazon",
+      "titulo": "Amazon.com.br : Iphone 17 pro max",
+      "preco": 109.0,
+      "url": "https://www.amazon.com.br/s?k=Iphone%2017%20pro%20max",
       "status": "encontrado"
     },
     {
       "loja": "KaBuM!",
       "titulo": "KaBuM! | Maior E-commerce de Tecnologia e Games da América Latina",
-      "preco": 4499.0,
-      "url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
+      "preco": 20554.0,
+      "url": "https://www.kabum.com.br/busca/Iphone%2017%20pro%20max",
       "status": "encontrado"
     }
   ]

@@ -14,5 +14,13 @@
     "preco": 107.0,
     "loja": "Terabyte",
     "url": "https://www.terabyteshop.com.br/busca?str=PS5%20Slim%20Digital%201TB"
+  },
+  {
+    "data": "01/09/2026 05:22:38",
+    "timestamp": "2026-09-01T05:22:38.165366",
+    "produto": "Iphone 17 pro max",
+    "preco": 105.0,
+    "loja": "Terabyte",
+    "url": "https://www.terabyteshop.com.br/busca?str=Iphone%2017%20pro%20max"
   }
 ]
