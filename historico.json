@@ -54,5 +54,13 @@
     "preco": 107.0,
     "loja": "Terabyte",
     "url": "https://www.terabyteshop.com.br/busca?str=PS5%20Slim%20Digital%201TB"
+  },
+  {
+    "data": "01/09/2026 12:17:05",
+    "timestamp": "2026-09-01T12:17:05.310947",
+    "produto": "PS5 Slim Digital 1TB",
+    "preco": 101.0,
+    "loja": "Amazon",
+    "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB"
   }
 ]
