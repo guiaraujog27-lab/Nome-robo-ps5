@@ -1,7 +1,7 @@
 {
   "produto": "PS5 Slim Digital 1TB",
   "preco_maximo": 3500.0,
-  "atualizado": "03/09/2026 05:34:20",
+  "atualizado": "03/09/2026 06:18:16",
   "menor_preco": 5999.0,
   "melhor_loja": "KaBuM!",
   "melhor_url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
@@ -46,9 +46,12 @@
     },
     {
       "loja": "Amazon",
+      "titulo": "PlayStation 5 Edição Slim Digital - Bundle edição limitada do 30º aniversário 9 set. 2025 4,6 4,6 de 5 estrelas (182) PlayStation 5 Ver opções Nenhuma opção de compra em destaque R$ 8.499,90 (1 nova oferta)",
+      "preco": 8499.9,
       "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
-      "status": "erro",
-      "erro": "HTTP 503"
+      "status": "encontrado",
+      "confianca": 19,
+      "origem": "CARD"
     }
   ],
   "ranking": [
@@ -60,6 +63,15 @@
       "status": "encontrado",
       "confianca": 47,
       "origem": "JSON-LD"
+    },
+    {
+      "loja": "Amazon",
+      "titulo": "PlayStation 5 Edição Slim Digital - Bundle edição limitada do 30º aniversário 9 set. 2025 4,6 4,6 de 5 estrelas (182) PlayStation 5 Ver opções Nenhuma opção de compra em destaque R$ 8.499,90 (1 nova oferta)",
+      "preco": 8499.9,
+      "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
+      "status": "encontrado",
+      "confianca": 19,
+      "origem": "CARD"
     }
   ]
 }
