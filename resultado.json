@@ -1,11 +1,11 @@
 {
   "produto": "PS5 Slim Digital 1TB",
   "preco_maximo": 3500.0,
-  "atualizado": "04/09/2026 04:13:14",
-  "menor_preco": 2051.14,
+  "atualizado": "04/09/2026 06:17:11",
+  "menor_preco": 4599.9,
   "melhor_loja": "Amazon",
   "melhor_url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
-  "oferta_encontrada": true,
+  "oferta_encontrada": false,
   "ofertas": [
     {
       "loja": "KaBuM!",
@@ -46,22 +46,22 @@
     },
     {
       "loja": "Amazon",
-      "titulo": "SSD Externo SanDisk Extreme PS5, 1TB, USB 3.2 Gen 2, Portátil, Leitura: 1000 MB/s, Compatível com PS5, Branco - SDSSDE62P-1T00-G25 4,7 4,7 de 5 estrelas (121) Ver opções Nenhuma opção de compra em destaque R$ 2.051,14 (5 ofertas de novos)",
-      "preco": 2051.14,
+      "titulo": "Escolha da Amazon para \"PS5 Slim Digital 1TB\" PlayStation 5 Slim Disk 1TB 1 Controle Branco Sony 20 fev. 2024 4,8 4,8 de 5 estrelas (92) Mais de 600 compras no mês passado PlayStation 5 Preço, página do produto R$ 4.599,90 R$ 4.599 , 90 De: R$ 5.868,09 De: R$ 5.868,09 R$5.868,09 R$ 10,00 off Entrega R$ 40,39: qui., 17 de set. Ou entrega mais rápida: 8 - 10 de set. Somente 7 em estoque. Adicionar ao carrinho",
+      "preco": 4599.9,
       "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
       "status": "encontrado",
-      "confianca": 19,
+      "confianca": 38,
       "origem": "CARD"
     }
   ],
   "ranking": [
     {
       "loja": "Amazon",
-      "titulo": "SSD Externo SanDisk Extreme PS5, 1TB, USB 3.2 Gen 2, Portátil, Leitura: 1000 MB/s, Compatível com PS5, Branco - SDSSDE62P-1T00-G25 4,7 4,7 de 5 estrelas (121) Ver opções Nenhuma opção de compra em destaque R$ 2.051,14 (5 ofertas de novos)",
-      "preco": 2051.14,
+      "titulo": "Escolha da Amazon para \"PS5 Slim Digital 1TB\" PlayStation 5 Slim Disk 1TB 1 Controle Branco Sony 20 fev. 2024 4,8 4,8 de 5 estrelas (92) Mais de 600 compras no mês passado PlayStation 5 Preço, página do produto R$ 4.599,90 R$ 4.599 , 90 De: R$ 5.868,09 De: R$ 5.868,09 R$5.868,09 R$ 10,00 off Entrega R$ 40,39: qui., 17 de set. Ou entrega mais rápida: 8 - 10 de set. Somente 7 em estoque. Adicionar ao carrinho",
+      "preco": 4599.9,
       "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
       "status": "encontrado",
-      "confianca": 19,
+      "confianca": 38,
       "origem": "CARD"
     },
     {
