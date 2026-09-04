@@ -1,10 +1,10 @@
 {
   "produto": "PS5 Slim Digital 1TB",
   "preco_maximo": 3500.0,
-  "atualizado": "04/09/2026 14:12:07",
-  "menor_preco": 4599.9,
-  "melhor_loja": "Amazon",
-  "melhor_url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
+  "atualizado": "04/09/2026 16:13:32",
+  "menor_preco": 5999.0,
+  "melhor_loja": "KaBuM!",
+  "melhor_url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
   "oferta_encontrada": false,
   "ofertas": [
     {
@@ -46,24 +46,12 @@
     },
     {
       "loja": "Amazon",
-      "titulo": "Escolha da Amazon para \"PS5 Slim Digital 1TB\" PlayStation 5 Slim Disk 1TB 1 Controle Branco Sony 20 fev. 2024 4,8 4,8 de 5 estrelas (94) Mais de 500 compras no mês passado PlayStation 5 Preço, página do produto R$ 4.599,90 R$ 4.599 , 90 De: R$ 5.868,09 De: R$ 5.868,09 R$5.868,09 R$ 10,00 off Entrega R$ 40,39: sex., 18 de set. Ou entrega mais rápida: 8 - 10 de set. Somente 4 em estoque. Adicionar ao carrinho",
-      "preco": 4599.9,
       "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
-      "status": "encontrado",
-      "confianca": 38,
-      "origem": "CARD"
+      "status": "erro",
+      "erro": "HTTP 503"
     }
   ],
   "ranking": [
-    {
-      "loja": "Amazon",
-      "titulo": "Escolha da Amazon para \"PS5 Slim Digital 1TB\" PlayStation 5 Slim Disk 1TB 1 Controle Branco Sony 20 fev. 2024 4,8 4,8 de 5 estrelas (94) Mais de 500 compras no mês passado PlayStation 5 Preço, página do produto R$ 4.599,90 R$ 4.599 , 90 De: R$ 5.868,09 De: R$ 5.868,09 R$5.868,09 R$ 10,00 off Entrega R$ 40,39: sex., 18 de set. Ou entrega mais rápida: 8 - 10 de set. Somente 4 em estoque. Adicionar ao carrinho",
-      "preco": 4599.9,
-      "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
-      "status": "encontrado",
-      "confianca": 38,
-      "origem": "CARD"
-    },
     {
       "loja": "KaBuM!",
       "titulo": "Console Sony Playstation 5 Slim Spiderman 2 Cfi-2015b 8k 1tb Digital",
