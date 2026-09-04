@@ -1,11 +1,11 @@
 {
   "produto": "PS5 Slim Digital 1TB",
   "preco_maximo": 3500.0,
-  "atualizado": "04/09/2026 00:18:57",
-  "menor_preco": 2051.14,
-  "melhor_loja": "Amazon",
-  "melhor_url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
-  "oferta_encontrada": true,
+  "atualizado": "04/09/2026 02:12:36",
+  "menor_preco": 5999.0,
+  "melhor_loja": "KaBuM!",
+  "melhor_url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
+  "oferta_encontrada": false,
   "ofertas": [
     {
       "loja": "KaBuM!",
@@ -46,24 +46,12 @@
     },
     {
       "loja": "Amazon",
-      "titulo": "SSD Externo SanDisk Extreme PS5, 1TB, USB 3.2 Gen 2, Portátil, Leitura: 1000 MB/s, Compatível com PS5, Branco - SDSSDE62P-1T00-G25 4,7 4,7 de 5 estrelas (121) Ver opções Nenhuma opção de compra em destaque R$ 2.051,14 (5 ofertas de novos)",
-      "preco": 2051.14,
       "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
-      "status": "encontrado",
-      "confianca": 19,
-      "origem": "CARD"
+      "status": "erro",
+      "erro": "HTTP 503"
     }
   ],
   "ranking": [
-    {
-      "loja": "Amazon",
-      "titulo": "SSD Externo SanDisk Extreme PS5, 1TB, USB 3.2 Gen 2, Portátil, Leitura: 1000 MB/s, Compatível com PS5, Branco - SDSSDE62P-1T00-G25 4,7 4,7 de 5 estrelas (121) Ver opções Nenhuma opção de compra em destaque R$ 2.051,14 (5 ofertas de novos)",
-      "preco": 2051.14,
-      "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
-      "status": "encontrado",
-      "confianca": 19,
-      "origem": "CARD"
-    },
     {
       "loja": "KaBuM!",
       "titulo": "Console Sony Playstation 5 Slim Spiderman 2 Cfi-2015b 8k 1tb Digital",
