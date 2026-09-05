@@ -1,7 +1,7 @@
 {
   "produto": "PS5 Slim Digital 1TB",
   "preco_maximo": 3500.0,
-  "atualizado": "05/09/2026 04:12:30",
+  "atualizado": "05/09/2026 06:15:40",
   "menor_preco": 5999.0,
   "melhor_loja": "KaBuM!",
   "melhor_url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
@@ -47,8 +47,7 @@
     {
       "loja": "Amazon",
       "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
-      "status": "erro",
-      "erro": "HTTP 503"
+      "status": "sem_preco"
     }
   ],
   "ranking": [
