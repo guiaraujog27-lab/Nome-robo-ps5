@@ -1,7 +1,7 @@
 {
   "produto": "PS5 Slim Digital 1TB",
   "preco_maximo": 3500.0,
-  "atualizado": "13/09/2026 00:18:58",
+  "atualizado": "13/09/2026 02:12:53",
   "menor_preco": 4399.0,
   "melhor_loja": "KaBuM!",
   "melhor_url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
@@ -46,9 +46,12 @@
     },
     {
       "loja": "Amazon",
+      "titulo": "Console PS5 c/Drive Slim 1TB + 1 Controle 20 jan. 2025 4,4 4,4 de 5 estrelas (20) PlayStation 5 Preço, página do produto R$ 4.999,90 R$ 4.999 , 90 R$ 20,00 off Entrega R$ 34,02: qua., 23 de set. Ou entrega mais rápida: seg., 21 de set. Adicionar ao carrinho",
+      "preco": 4999.9,
       "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
-      "status": "erro",
-      "erro": "HTTP 503"
+      "status": "encontrado",
+      "confianca": 30,
+      "origem": "CARD"
     }
   ],
   "ranking": [
@@ -60,6 +63,15 @@
       "status": "encontrado",
       "confianca": 39,
       "origem": "JSON-LD"
+    },
+    {
+      "loja": "Amazon",
+      "titulo": "Console PS5 c/Drive Slim 1TB + 1 Controle 20 jan. 2025 4,4 4,4 de 5 estrelas (20) PlayStation 5 Preço, página do produto R$ 4.999,90 R$ 4.999 , 90 R$ 20,00 off Entrega R$ 34,02: qua., 23 de set. Ou entrega mais rápida: seg., 21 de set. Adicionar ao carrinho",
+      "preco": 4999.9,
+      "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
+      "status": "encontrado",
+      "confianca": 30,
+      "origem": "CARD"
     }
   ]
 }
