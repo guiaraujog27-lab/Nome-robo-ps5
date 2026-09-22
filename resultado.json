@@ -1,19 +1,19 @@
 {
   "produto": "PS5 Slim Digital 1TB",
   "preco_maximo": 3500.0,
-  "atualizado": "22/09/2026 14:13:27",
-  "menor_preco": 4599.0,
+  "atualizado": "22/09/2026 16:13:20",
+  "menor_preco": 5999.0,
   "melhor_loja": "KaBuM!",
   "melhor_url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
   "oferta_encontrada": false,
   "ofertas": [
     {
       "loja": "KaBuM!",
-      "titulo": "Console Sony PlayStation 5 Edição Digital Slim, SSD 825GB, Controle DualSense, Astro's Playroom, Branco - CFI 2114B",
-      "preco": 4599.0,
+      "titulo": "Console Sony Playstation 5 Slim Spiderman 2 Cfi-2015b 8k 1tb Digital",
+      "preco": 5999.0,
       "url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
       "status": "encontrado",
-      "confianca": 39,
+      "confianca": 47,
       "origem": "JSON-LD"
     },
     {
@@ -46,32 +46,20 @@
     },
     {
       "loja": "Amazon",
-      "titulo": "PlayStation 5 Edição Slim Digital - Bundle edição limitada do 30º aniversário 9 set. 2025 4,6 4,6 de 5 estrelas (185) PlayStation 5 Ver opções Nenhuma opção de compra em destaque R$ 8.300,00 (2 ofertas de novos)",
-      "preco": 8300.0,
       "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
-      "status": "encontrado",
-      "confianca": 19,
-      "origem": "CARD"
+      "status": "erro",
+      "erro": "HTTP 503"
     }
   ],
   "ranking": [
     {
       "loja": "KaBuM!",
-      "titulo": "Console Sony PlayStation 5 Edição Digital Slim, SSD 825GB, Controle DualSense, Astro's Playroom, Branco - CFI 2114B",
-      "preco": 4599.0,
+      "titulo": "Console Sony Playstation 5 Slim Spiderman 2 Cfi-2015b 8k 1tb Digital",
+      "preco": 5999.0,
       "url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
       "status": "encontrado",
-      "confianca": 39,
+      "confianca": 47,
       "origem": "JSON-LD"
-    },
-    {
-      "loja": "Amazon",
-      "titulo": "PlayStation 5 Edição Slim Digital - Bundle edição limitada do 30º aniversário 9 set. 2025 4,6 4,6 de 5 estrelas (185) PlayStation 5 Ver opções Nenhuma opção de compra em destaque R$ 8.300,00 (2 ofertas de novos)",
-      "preco": 8300.0,
-      "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
-      "status": "encontrado",
-      "confianca": 19,
-      "origem": "CARD"
     }
   ]
 }
