@@ -1,17 +1,20 @@
 {
   "produto": "PS5 Slim Digital 1TB",
   "preco_maximo": 3500.0,
-  "atualizado": "23/09/2026 18:17:16",
-  "menor_preco": null,
-  "melhor_loja": null,
-  "melhor_url": null,
+  "atualizado": "23/09/2026 20:13:57",
+  "menor_preco": 4314.74,
+  "melhor_loja": "KaBuM!",
+  "melhor_url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
   "oferta_encontrada": false,
   "ofertas": [
     {
       "loja": "KaBuM!",
+      "titulo": "Console Playstation 5 Slim Digital 825gb SSD 1 Controle Dualsense",
+      "preco": 4314.74,
       "url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
-      "status": "erro",
-      "erro": "('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))"
+      "status": "encontrado",
+      "confianca": 39,
+      "origem": "JSON-LD"
     },
     {
       "loja": "Pichau",
@@ -48,5 +51,15 @@
       "erro": "HTTP 503"
     }
   ],
-  "ranking": []
+  "ranking": [
+    {
+      "loja": "KaBuM!",
+      "titulo": "Console Playstation 5 Slim Digital 825gb SSD 1 Controle Dualsense",
+      "preco": 4314.74,
+      "url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
+      "status": "encontrado",
+      "confianca": 39,
+      "origem": "JSON-LD"
+    }
+  ]
 }
