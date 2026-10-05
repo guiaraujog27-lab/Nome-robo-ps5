@@ -1,11 +1,11 @@
 {
   "produto": "PS5 Slim Digital 1TB",
   "preco_maximo": 3500.0,
-  "atualizado": "04/10/2026 22:52:05",
-  "menor_preco": null,
-  "melhor_loja": null,
-  "melhor_url": null,
-  "oferta_encontrada": false,
+  "atualizado": "05/10/2026 04:40:38",
+  "menor_preco": 1647.06,
+  "melhor_loja": "Terabyte",
+  "melhor_url": "https://www.terabyteshop.com.br/busca?str=PS5%20Slim%20Digital%201TB",
+  "oferta_encontrada": true,
   "ofertas": [
     {
       "loja": "KaBuM!",
@@ -20,8 +20,12 @@
     },
     {
       "loja": "Terabyte",
+      "titulo": "PC GAMER TEMPEST Intel Core i9 14900KF / AMD Radeon RX 9070 XT/ 32GB DDR5 / SSD 1TB NVME De: R$ 19.764,69 por: R$ 16.799,99 à vista no Pix 12x de R$ 1.647,06 sem juros no cartão",
+      "preco": 1647.06,
       "url": "https://www.terabyteshop.com.br/busca?str=PS5%20Slim%20Digital%201TB",
-      "status": "sem_preco"
+      "status": "encontrado",
+      "confianca": 8,
+      "origem": "CARD"
     },
     {
       "loja": "Magazine Luiza",
@@ -47,5 +51,15 @@
       "erro": "HTTP 503"
     }
   ],
-  "ranking": []
+  "ranking": [
+    {
+      "loja": "Terabyte",
+      "titulo": "PC GAMER TEMPEST Intel Core i9 14900KF / AMD Radeon RX 9070 XT/ 32GB DDR5 / SSD 1TB NVME De: R$ 19.764,69 por: R$ 16.799,99 à vista no Pix 12x de R$ 1.647,06 sem juros no cartão",
+      "preco": 1647.06,
+      "url": "https://www.terabyteshop.com.br/busca?str=PS5%20Slim%20Digital%201TB",
+      "status": "encontrado",
+      "confianca": 8,
+      "origem": "CARD"
+    }
+  ]
 }
