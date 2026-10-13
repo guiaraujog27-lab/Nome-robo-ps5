@@ -1,10 +1,10 @@
 {
   "produto": "PS5 Slim Digital 1TB",
   "preco_maximo": 3500.0,
-  "atualizado": "13/10/2026 05:58:32",
-  "menor_preco": 4699.0,
-  "melhor_loja": "KaBuM!",
-  "melhor_url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
+  "atualizado": "13/10/2026 14:03:00",
+  "menor_preco": 4529.0,
+  "melhor_loja": "Amazon",
+  "melhor_url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
   "oferta_encontrada": false,
   "ofertas": [
     {
@@ -46,12 +46,24 @@
     },
     {
       "loja": "Amazon",
+      "titulo": "PlayStation®5 Slim Digital 825GB – Pacote ASTRO BOT e Gran Turismo 7 4.8 4.8 de 5 estrelas. (4k) R$4.529,00 R$ 4.529 , 00",
+      "preco": 4529.0,
       "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
-      "status": "erro",
-      "erro": "HTTP 503"
+      "status": "encontrado",
+      "confianca": 19,
+      "origem": "CARD"
     }
   ],
   "ranking": [
+    {
+      "loja": "Amazon",
+      "titulo": "PlayStation®5 Slim Digital 825GB – Pacote ASTRO BOT e Gran Turismo 7 4.8 4.8 de 5 estrelas. (4k) R$4.529,00 R$ 4.529 , 00",
+      "preco": 4529.0,
+      "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
+      "status": "encontrado",
+      "confianca": 19,
+      "origem": "CARD"
+    },
     {
       "loja": "KaBuM!",
       "titulo": "Console Sony PlayStation 5 Edição Digital Slim, SSD 825GB, Controle DualSense, Astro's Playroom, Branco - CFI 2114B",
