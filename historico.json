@@ -3110,5 +3110,13 @@
     "preco": 4205.27,
     "loja": "Amazon",
     "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB"
+  },
+  {
+    "data": "14/10/2026 07:15:18",
+    "timestamp": "2026-10-14T07:15:18.364518",
+    "produto": "PS5 Slim Digital 1TB",
+    "preco": 4699.0,
+    "loja": "KaBuM!",
+    "url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB"
   }
 ]
