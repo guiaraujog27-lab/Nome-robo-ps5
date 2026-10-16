@@ -1,7 +1,7 @@
 {
   "produto": "PS5 Slim Digital 1TB",
   "preco_maximo": 3500.0,
-  "atualizado": "16/10/2026 14:38:33",
+  "atualizado": "16/10/2026 19:25:34",
   "menor_preco": 4699.0,
   "melhor_loja": "KaBuM!",
   "melhor_url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
@@ -46,12 +46,9 @@
     },
     {
       "loja": "Amazon",
-      "titulo": "Console PlayStation 5 - Digital Edition 17 nov. 2020 4,8 4,8 de 5 estrelas (2 mil) PlayStation 5 Ver opções Nenhuma opção de compra em destaque R$ 4.885,00 (1 nova oferta)",
-      "preco": 4885.0,
       "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
-      "status": "encontrado",
-      "confianca": 16,
-      "origem": "CARD"
+      "status": "erro",
+      "erro": "HTTP 503"
     }
   ],
   "ranking": [
@@ -63,15 +60,6 @@
       "status": "encontrado",
       "confianca": 39,
       "origem": "JSON-LD"
-    },
-    {
-      "loja": "Amazon",
-      "titulo": "Console PlayStation 5 - Digital Edition 17 nov. 2020 4,8 4,8 de 5 estrelas (2 mil) PlayStation 5 Ver opções Nenhuma opção de compra em destaque R$ 4.885,00 (1 nova oferta)",
-      "preco": 4885.0,
-      "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
-      "status": "encontrado",
-      "confianca": 16,
-      "origem": "CARD"
     }
   ]
 }
