@@ -1,19 +1,19 @@
 {
   "produto": "PS5 Slim Digital 1TB",
   "preco_maximo": 3500.0,
-  "atualizado": "04/11/2026 08:45:04",
-  "menor_preco": 4699.0,
-  "melhor_loja": "KaBuM!",
-  "melhor_url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
+  "atualizado": "04/11/2026 17:52:28",
+  "menor_preco": 4599.9,
+  "melhor_loja": "Amazon",
+  "melhor_url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
   "oferta_encontrada": false,
   "ofertas": [
     {
       "loja": "KaBuM!",
-      "titulo": "Console Sony PlayStation 5 Edição Digital Slim, SSD 825GB, Controle DualSense, Astro's Playroom, Branco - CFI 2114B",
-      "preco": 4699.0,
+      "titulo": "Console Sony Playstation 5 Slim Edição Digital, 1TB, 2 Jogos",
+      "preco": 6729.9,
       "url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
       "status": "encontrado",
-      "confianca": 39,
+      "confianca": 47,
       "origem": "JSON-LD"
     },
     {
@@ -47,8 +47,8 @@
     },
     {
       "loja": "Amazon",
-      "titulo": "Bundle GTA VI + PlayStation 5 Slim Digital 825 GB - Pacote Astro Bot e Gran Turismo 7 19 nov. 2026 PlayStation 5 Oferta Exclusiva Prime Preço, página do produto R$ 4.699,90 R$ 4.699 , 90 Preço sugerido do combo:  R$ 5.049,80 Preço sugerido do combo: R$ 5.049,80 R$5.049,80 R$ 10,00 off Este produto será lançado em 19/Novembro/2026. Ver opções",
-      "preco": 4699.9,
+      "titulo": "Sony PlayStation 5 Slim Digital Console 825GB - International Version 14 jan. 2026 5,0 5,0 de 5 estrelas (4) PlayStation 5 Ver opções Nenhuma opção de compra em destaque R$ 4.599,90 (1 nova oferta)",
+      "preco": 4599.9,
       "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
       "status": "encontrado",
       "confianca": 19,
@@ -57,22 +57,22 @@
   ],
   "ranking": [
     {
-      "loja": "KaBuM!",
-      "titulo": "Console Sony PlayStation 5 Edição Digital Slim, SSD 825GB, Controle DualSense, Astro's Playroom, Branco - CFI 2114B",
-      "preco": 4699.0,
-      "url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
-      "status": "encontrado",
-      "confianca": 39,
-      "origem": "JSON-LD"
-    },
-    {
       "loja": "Amazon",
-      "titulo": "Bundle GTA VI + PlayStation 5 Slim Digital 825 GB - Pacote Astro Bot e Gran Turismo 7 19 nov. 2026 PlayStation 5 Oferta Exclusiva Prime Preço, página do produto R$ 4.699,90 R$ 4.699 , 90 Preço sugerido do combo:  R$ 5.049,80 Preço sugerido do combo: R$ 5.049,80 R$5.049,80 R$ 10,00 off Este produto será lançado em 19/Novembro/2026. Ver opções",
-      "preco": 4699.9,
+      "titulo": "Sony PlayStation 5 Slim Digital Console 825GB - International Version 14 jan. 2026 5,0 5,0 de 5 estrelas (4) PlayStation 5 Ver opções Nenhuma opção de compra em destaque R$ 4.599,90 (1 nova oferta)",
+      "preco": 4599.9,
       "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
       "status": "encontrado",
       "confianca": 19,
       "origem": "CARD"
+    },
+    {
+      "loja": "KaBuM!",
+      "titulo": "Console Sony Playstation 5 Slim Edição Digital, 1TB, 2 Jogos",
+      "preco": 6729.9,
+      "url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
+      "status": "encontrado",
+      "confianca": 47,
+      "origem": "JSON-LD"
     }
   ]
 }
