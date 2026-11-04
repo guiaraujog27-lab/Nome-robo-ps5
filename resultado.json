@@ -1,19 +1,19 @@
 {
   "produto": "PS5 Slim Digital 1TB",
   "preco_maximo": 3500.0,
-  "atualizado": "03/11/2026 19:14:20",
-  "menor_preco": 4699.9,
-  "melhor_loja": "Amazon",
-  "melhor_url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
+  "atualizado": "04/11/2026 00:27:35",
+  "menor_preco": 4699.0,
+  "melhor_loja": "KaBuM!",
+  "melhor_url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
   "oferta_encontrada": false,
   "ofertas": [
     {
       "loja": "KaBuM!",
-      "titulo": "Console Sony Playstation 5 Slim Edição Digital, 1TB, 2 Jogos",
-      "preco": 4749.0,
+      "titulo": "Console Sony PlayStation 5 Edição Digital Slim, SSD 825GB, Controle DualSense, Astro's Playroom, Branco - CFI 2114B",
+      "preco": 4699.0,
       "url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
       "status": "encontrado",
-      "confianca": 47,
+      "confianca": 39,
       "origem": "JSON-LD"
     },
     {
@@ -47,31 +47,18 @@
     },
     {
       "loja": "Amazon",
-      "titulo": "Bundle GTA VI + PlayStation 5 Slim Digital 825 GB - Pacote Astro Bot e Gran Turismo 7 19 nov. 2026 PlayStation 5 Oferta Exclusiva Prime Preço, página do produto R$ 4.699,90 R$ 4.699 , 90 Preço sugerido do combo:  R$ 5.049,80 Preço sugerido do combo: R$ 5.049,80 R$5.049,80 R$ 10,00 off Este produto será lançado em 19/Novembro/2026. Ver opções",
-      "preco": 4699.9,
       "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
-      "status": "encontrado",
-      "confianca": 19,
-      "origem": "CARD"
+      "status": "sem_preco"
     }
   ],
   "ranking": [
     {
-      "loja": "Amazon",
-      "titulo": "Bundle GTA VI + PlayStation 5 Slim Digital 825 GB - Pacote Astro Bot e Gran Turismo 7 19 nov. 2026 PlayStation 5 Oferta Exclusiva Prime Preço, página do produto R$ 4.699,90 R$ 4.699 , 90 Preço sugerido do combo:  R$ 5.049,80 Preço sugerido do combo: R$ 5.049,80 R$5.049,80 R$ 10,00 off Este produto será lançado em 19/Novembro/2026. Ver opções",
-      "preco": 4699.9,
-      "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
-      "status": "encontrado",
-      "confianca": 19,
-      "origem": "CARD"
-    },
-    {
       "loja": "KaBuM!",
-      "titulo": "Console Sony Playstation 5 Slim Edição Digital, 1TB, 2 Jogos",
-      "preco": 4749.0,
+      "titulo": "Console Sony PlayStation 5 Edição Digital Slim, SSD 825GB, Controle DualSense, Astro's Playroom, Branco - CFI 2114B",
+      "preco": 4699.0,
       "url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
       "status": "encontrado",
-      "confianca": 47,
+      "confianca": 39,
       "origem": "JSON-LD"
     }
   ]
