@@ -1,7 +1,7 @@
 {
   "produto": "PS5 Slim Digital 1TB",
   "preco_maximo": 3500.0,
-  "atualizado": "04/11/2026 00:27:35",
+  "atualizado": "04/11/2026 08:45:04",
   "menor_preco": 4699.0,
   "melhor_loja": "KaBuM!",
   "melhor_url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
@@ -47,8 +47,12 @@
     },
     {
       "loja": "Amazon",
+      "titulo": "Bundle GTA VI + PlayStation 5 Slim Digital 825 GB - Pacote Astro Bot e Gran Turismo 7 19 nov. 2026 PlayStation 5 Oferta Exclusiva Prime Preço, página do produto R$ 4.699,90 R$ 4.699 , 90 Preço sugerido do combo:  R$ 5.049,80 Preço sugerido do combo: R$ 5.049,80 R$5.049,80 R$ 10,00 off Este produto será lançado em 19/Novembro/2026. Ver opções",
+      "preco": 4699.9,
       "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
-      "status": "sem_preco"
+      "status": "encontrado",
+      "confianca": 19,
+      "origem": "CARD"
     }
   ],
   "ranking": [
@@ -60,6 +64,15 @@
       "status": "encontrado",
       "confianca": 39,
       "origem": "JSON-LD"
+    },
+    {
+      "loja": "Amazon",
+      "titulo": "Bundle GTA VI + PlayStation 5 Slim Digital 825 GB - Pacote Astro Bot e Gran Turismo 7 19 nov. 2026 PlayStation 5 Oferta Exclusiva Prime Preço, página do produto R$ 4.699,90 R$ 4.699 , 90 Preço sugerido do combo:  R$ 5.049,80 Preço sugerido do combo: R$ 5.049,80 R$5.049,80 R$ 10,00 off Este produto será lançado em 19/Novembro/2026. Ver opções",
+      "preco": 4699.9,
+      "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
+      "status": "encontrado",
+      "confianca": 19,
+      "origem": "CARD"
     }
   ]
 }
