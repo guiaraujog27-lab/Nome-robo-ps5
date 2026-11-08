@@ -1,13 +1,5 @@
 [
   {
-    "data": "01/09/2026 05:19:07",
-    "timestamp": "2026-09-01T05:19:07.441966",
-    "produto": "PS5 Slim Digital 1TB",
-    "preco": 107.0,
-    "loja": "Terabyte",
-    "url": "https://www.terabyteshop.com.br/busca?str=PS5%20Slim%20Digital%201TB"
-  },
-  {
     "data": "01/09/2026 05:22:38",
     "timestamp": "2026-09-01T05:22:38.165366",
     "produto": "Iphone 17 pro max",
@@ -3994,6 +3986,14 @@
   {
     "data": "08/11/2026 12:55:57",
     "timestamp": "2026-11-08T12:55:57.217668",
+    "produto": "PS5 Slim Digital 1TB",
+    "preco": 4599.0,
+    "loja": "Amazon",
+    "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB"
+  },
+  {
+    "data": "08/11/2026 18:41:44",
+    "timestamp": "2026-11-08T18:41:44.797872",
     "produto": "PS5 Slim Digital 1TB",
     "preco": 4599.0,
     "loja": "Amazon",
