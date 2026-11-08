@@ -1,13 +1,5 @@
 [
   {
-    "data": "01/09/2026 05:22:38",
-    "timestamp": "2026-09-01T05:22:38.165366",
-    "produto": "Iphone 17 pro max",
-    "preco": 105.0,
-    "loja": "Terabyte",
-    "url": "https://www.terabyteshop.com.br/busca?str=Iphone%2017%20pro%20max"
-  },
-  {
     "data": "01/09/2026 06:17:06",
     "timestamp": "2026-09-01T06:17:06.949185",
     "produto": "PS5 Slim Digital 1TB",
@@ -3998,5 +3990,13 @@
     "preco": 4599.0,
     "loja": "Amazon",
     "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB"
+  },
+  {
+    "data": "08/11/2026 23:28:16",
+    "timestamp": "2026-11-08T23:28:16.480039",
+    "produto": "PS5 Slim Digital 1TB",
+    "preco": 2636.0,
+    "loja": "KaBuM!",
+    "url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB"
   }
 ]

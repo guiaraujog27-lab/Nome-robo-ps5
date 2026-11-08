@@ -1,16 +1,16 @@
 {
   "produto": "PS5 Slim Digital 1TB",
   "preco_maximo": 3500.0,
-  "atualizado": "08/11/2026 18:41:44",
-  "menor_preco": 4599.0,
-  "melhor_loja": "Amazon",
-  "melhor_url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
-  "oferta_encontrada": false,
+  "atualizado": "08/11/2026 23:28:16",
+  "menor_preco": 2636.0,
+  "melhor_loja": "KaBuM!",
+  "melhor_url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
+  "oferta_encontrada": true,
   "ofertas": [
     {
       "loja": "KaBuM!",
-      "titulo": "Console Sony Playstation 5 Slim Edição Digital, 1TB, 2 Jogos",
-      "preco": 6729.9,
+      "titulo": "SSD M.2 Nvme Gen5 1TB 14.700mb/s Samsung 9100 Pro 1TB PC / Ps5 / Playstation 5 SSD PCie 5.0 Gen 5 - Mz-vap1t0bam",
+      "preco": 2636.0,
       "url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
       "status": "encontrado",
       "confianca": 47,
@@ -57,6 +57,15 @@
   ],
   "ranking": [
     {
+      "loja": "KaBuM!",
+      "titulo": "SSD M.2 Nvme Gen5 1TB 14.700mb/s Samsung 9100 Pro 1TB PC / Ps5 / Playstation 5 SSD PCie 5.0 Gen 5 - Mz-vap1t0bam",
+      "preco": 2636.0,
+      "url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
+      "status": "encontrado",
+      "confianca": 47,
+      "origem": "JSON-LD"
+    },
+    {
       "loja": "Amazon",
       "titulo": "PlayStation®5 Slim Edição Digital 18 jan. 2024 4,7 4,7 de 5 estrelas (1,1 mil) Mais de 400 compras no mês passado PlayStation 5 Ver opções Nenhuma opção de compra em destaque R$ 4.599,00 (6 ofertas de novos)",
       "preco": 4599.0,
@@ -64,15 +73,6 @@
       "status": "encontrado",
       "confianca": 19,
       "origem": "CARD"
-    },
-    {
-      "loja": "KaBuM!",
-      "titulo": "Console Sony Playstation 5 Slim Edição Digital, 1TB, 2 Jogos",
-      "preco": 6729.9,
-      "url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
-      "status": "encontrado",
-      "confianca": 47,
-      "origem": "JSON-LD"
     }
   ]
 }
