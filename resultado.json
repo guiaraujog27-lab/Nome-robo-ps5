@@ -1,10 +1,10 @@
 {
   "produto": "PS5 Slim Digital 1TB",
   "preco_maximo": 3500.0,
-  "atualizado": "09/11/2026 15:31:48",
-  "menor_preco": 6729.9,
-  "melhor_loja": "KaBuM!",
-  "melhor_url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
+  "atualizado": "09/11/2026 23:59:30",
+  "menor_preco": 4800.0,
+  "melhor_loja": "Amazon",
+  "melhor_url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
   "oferta_encontrada": false,
   "ofertas": [
     {
@@ -47,11 +47,24 @@
     },
     {
       "loja": "Amazon",
+      "titulo": "PlayStation 5 Slim Disk 1TB 1 Controle Branco Sony 20 fev. 2024 4,8 4,8 de 5 estrelas (176) Mais de 100 compras no mês passado PlayStation 5 Ver opções Nenhuma opção de compra em destaque R$ 4.800,00 (4 ofertas de novos)",
+      "preco": 4800.0,
       "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
-      "status": "sem_preco"
+      "status": "encontrado",
+      "confianca": 19,
+      "origem": "CARD"
     }
   ],
   "ranking": [
+    {
+      "loja": "Amazon",
+      "titulo": "PlayStation 5 Slim Disk 1TB 1 Controle Branco Sony 20 fev. 2024 4,8 4,8 de 5 estrelas (176) Mais de 100 compras no mês passado PlayStation 5 Ver opções Nenhuma opção de compra em destaque R$ 4.800,00 (4 ofertas de novos)",
+      "preco": 4800.0,
+      "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
+      "status": "encontrado",
+      "confianca": 19,
+      "origem": "CARD"
+    },
     {
       "loja": "KaBuM!",
       "titulo": "Console Sony Playstation 5 Slim Edição Digital, 1TB, 2 Jogos",
