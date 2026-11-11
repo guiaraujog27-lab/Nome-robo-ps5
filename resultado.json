@@ -1,16 +1,16 @@
 {
   "produto": "PS5 Slim Digital 1TB",
   "preco_maximo": 3500.0,
-  "atualizado": "11/11/2026 13:45:45",
-  "menor_preco": 6729.9,
+  "atualizado": "11/11/2026 21:07:44",
+  "menor_preco": 2636.0,
   "melhor_loja": "KaBuM!",
   "melhor_url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
-  "oferta_encontrada": false,
+  "oferta_encontrada": true,
   "ofertas": [
     {
       "loja": "KaBuM!",
-      "titulo": "Console Sony Playstation 5 Slim Edição Digital, 1TB, 2 Jogos",
-      "preco": 6729.9,
+      "titulo": "SSD M.2 Nvme Gen5 1TB 14.700mb/s Samsung 9100 Pro 1TB PC / Ps5 / Playstation 5 SSD PCie 5.0 Gen 5 - Mz-vap1t0bam",
+      "preco": 2636.0,
       "url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
       "status": "encontrado",
       "confianca": 47,
@@ -47,19 +47,32 @@
     },
     {
       "loja": "Amazon",
+      "titulo": "Bundle GTA VI + PlayStation 5 Slim Digital 825 GB - Pacote Astro Bot e Gran Turismo 7 19 nov. 2026 PlayStation 5 Ver opções Nenhuma opção de compra em destaque R$ 4.908,90 (1 nova oferta)",
+      "preco": 4908.9,
       "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
-      "status": "sem_preco"
+      "status": "encontrado",
+      "confianca": 19,
+      "origem": "CARD"
     }
   ],
   "ranking": [
     {
       "loja": "KaBuM!",
-      "titulo": "Console Sony Playstation 5 Slim Edição Digital, 1TB, 2 Jogos",
-      "preco": 6729.9,
+      "titulo": "SSD M.2 Nvme Gen5 1TB 14.700mb/s Samsung 9100 Pro 1TB PC / Ps5 / Playstation 5 SSD PCie 5.0 Gen 5 - Mz-vap1t0bam",
+      "preco": 2636.0,
       "url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
       "status": "encontrado",
       "confianca": 47,
       "origem": "JSON-LD"
+    },
+    {
+      "loja": "Amazon",
+      "titulo": "Bundle GTA VI + PlayStation 5 Slim Digital 825 GB - Pacote Astro Bot e Gran Turismo 7 19 nov. 2026 PlayStation 5 Ver opções Nenhuma opção de compra em destaque R$ 4.908,90 (1 nova oferta)",
+      "preco": 4908.9,
+      "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
+      "status": "encontrado",
+      "confianca": 19,
+      "origem": "CARD"
     }
   ]
 }
