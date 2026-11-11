@@ -1,8 +1,8 @@
 {
   "produto": "PS5 Slim Digital 1TB",
   "preco_maximo": 3500.0,
-  "atualizado": "11/11/2026 05:13:30",
-  "menor_preco": 4735.79,
+  "atualizado": "11/11/2026 13:45:45",
+  "menor_preco": 6729.9,
   "melhor_loja": "KaBuM!",
   "melhor_url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
   "oferta_encontrada": false,
@@ -10,7 +10,7 @@
     {
       "loja": "KaBuM!",
       "titulo": "Console Sony Playstation 5 Slim Edição Digital, 1TB, 2 Jogos",
-      "preco": 4735.79,
+      "preco": 6729.9,
       "url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
       "status": "encontrado",
       "confianca": 47,
@@ -47,32 +47,19 @@
     },
     {
       "loja": "Amazon",
-      "titulo": "Bundle GTA VI + PlayStation 5 Slim Digital 825 GB - Pacote Astro Bot e Gran Turismo 7 19 nov. 2026 PlayStation 5 Ver opções Nenhuma opção de compra em destaque R$ 4.908,90 (1 nova oferta)",
-      "preco": 4908.9,
       "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
-      "status": "encontrado",
-      "confianca": 19,
-      "origem": "CARD"
+      "status": "sem_preco"
     }
   ],
   "ranking": [
     {
       "loja": "KaBuM!",
       "titulo": "Console Sony Playstation 5 Slim Edição Digital, 1TB, 2 Jogos",
-      "preco": 4735.79,
+      "preco": 6729.9,
       "url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
       "status": "encontrado",
       "confianca": 47,
       "origem": "JSON-LD"
-    },
-    {
-      "loja": "Amazon",
-      "titulo": "Bundle GTA VI + PlayStation 5 Slim Digital 825 GB - Pacote Astro Bot e Gran Turismo 7 19 nov. 2026 PlayStation 5 Ver opções Nenhuma opção de compra em destaque R$ 4.908,90 (1 nova oferta)",
-      "preco": 4908.9,
-      "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
-      "status": "encontrado",
-      "confianca": 19,
-      "origem": "CARD"
     }
   ]
 }
