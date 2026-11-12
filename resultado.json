@@ -1,17 +1,20 @@
 {
   "produto": "PS5 Slim Digital 1TB",
   "preco_maximo": 3500.0,
-  "atualizado": "12/11/2026 12:19:14",
-  "menor_preco": 4908.9,
-  "melhor_loja": "Amazon",
-  "melhor_url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
-  "oferta_encontrada": false,
+  "atualizado": "12/11/2026 21:20:45",
+  "menor_preco": 2636.0,
+  "melhor_loja": "KaBuM!",
+  "melhor_url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
+  "oferta_encontrada": true,
   "ofertas": [
     {
       "loja": "KaBuM!",
+      "titulo": "SSD M.2 Nvme Gen5 1TB 14.700mb/s Samsung 9100 Pro 1TB PC / Ps5 / Playstation 5 SSD PCie 5.0 Gen 5 - Mz-vap1t0bam",
+      "preco": 2636.0,
       "url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
-      "status": "bloqueada",
-      "erro": "HTTP 403"
+      "status": "encontrado",
+      "confianca": 47,
+      "origem": "JSON-LD"
     },
     {
       "loja": "Pichau",
@@ -44,23 +47,20 @@
     },
     {
       "loja": "Amazon",
-      "titulo": "Bundle GTA VI + PlayStation 5 Slim Digital 825 GB - Pacote Astro Bot e Gran Turismo 7 19 nov. 2026 PlayStation 5 Preço, página do produto R$ 4.908,90 R$ 4.908 , 90 Lista: R$ 5.049,80 Lista: R$ 5.049,80 R$5.049,80 Adicionar ao carrinho",
-      "preco": 4908.9,
       "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
-      "status": "encontrado",
-      "confianca": 19,
-      "origem": "CARD"
+      "status": "erro",
+      "erro": "HTTP 503"
     }
   ],
   "ranking": [
     {
-      "loja": "Amazon",
-      "titulo": "Bundle GTA VI + PlayStation 5 Slim Digital 825 GB - Pacote Astro Bot e Gran Turismo 7 19 nov. 2026 PlayStation 5 Preço, página do produto R$ 4.908,90 R$ 4.908 , 90 Lista: R$ 5.049,80 Lista: R$ 5.049,80 R$5.049,80 Adicionar ao carrinho",
-      "preco": 4908.9,
-      "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
+      "loja": "KaBuM!",
+      "titulo": "SSD M.2 Nvme Gen5 1TB 14.700mb/s Samsung 9100 Pro 1TB PC / Ps5 / Playstation 5 SSD PCie 5.0 Gen 5 - Mz-vap1t0bam",
+      "preco": 2636.0,
+      "url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
       "status": "encontrado",
-      "confianca": 19,
-      "origem": "CARD"
+      "confianca": 47,
+      "origem": "JSON-LD"
     }
   ]
 }
