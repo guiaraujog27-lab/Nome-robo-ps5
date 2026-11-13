@@ -1,16 +1,16 @@
 {
   "produto": "PS5 Slim Digital 1TB",
   "preco_maximo": 3500.0,
-  "atualizado": "13/11/2026 02:27:48",
-  "menor_preco": 2636.0,
+  "atualizado": "13/11/2026 11:57:01",
+  "menor_preco": 4735.79,
   "melhor_loja": "KaBuM!",
   "melhor_url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
-  "oferta_encontrada": true,
+  "oferta_encontrada": false,
   "ofertas": [
     {
       "loja": "KaBuM!",
-      "titulo": "SSD M.2 Nvme Gen5 1TB 14.700mb/s Samsung 9100 Pro 1TB PC / Ps5 / Playstation 5 SSD PCie 5.0 Gen 5 - Mz-vap1t0bam",
-      "preco": 2636.0,
+      "titulo": "Console Sony Playstation 5 Slim Edição Digital, 1TB, 2 Jogos",
+      "preco": 4735.79,
       "url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
       "status": "encontrado",
       "confianca": 47,
@@ -48,14 +48,15 @@
     {
       "loja": "Amazon",
       "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
-      "status": "sem_preco"
+      "status": "erro",
+      "erro": "HTTP 503"
     }
   ],
   "ranking": [
     {
       "loja": "KaBuM!",
-      "titulo": "SSD M.2 Nvme Gen5 1TB 14.700mb/s Samsung 9100 Pro 1TB PC / Ps5 / Playstation 5 SSD PCie 5.0 Gen 5 - Mz-vap1t0bam",
-      "preco": 2636.0,
+      "titulo": "Console Sony Playstation 5 Slim Edição Digital, 1TB, 2 Jogos",
+      "preco": 4735.79,
       "url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
       "status": "encontrado",
       "confianca": 47,
