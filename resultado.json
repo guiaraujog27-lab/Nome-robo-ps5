@@ -1,10 +1,10 @@
 {
   "produto": "PS5 Slim Digital 1TB",
   "preco_maximo": 3500.0,
-  "atualizado": "22/11/2026 01:56:59",
-  "menor_preco": 4599.9,
-  "melhor_loja": "Amazon",
-  "melhor_url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
+  "atualizado": "22/11/2026 09:36:42",
+  "menor_preco": 4699.0,
+  "melhor_loja": "KaBuM!",
+  "melhor_url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB",
   "oferta_encontrada": false,
   "ofertas": [
     {
@@ -47,24 +47,12 @@
     },
     {
       "loja": "Amazon",
-      "titulo": "Sony PlayStation 5 Slim Digital Console 825GB - International Version 14 jan. 2026 5,0 5,0 de 5 estrelas (9) Mais de 200 compras no mês passado PlayStation 5 Ver opções Nenhuma opção de compra em destaque R$ 4.599,90 (2 ofertas de novos)",
-      "preco": 4599.9,
       "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
-      "status": "encontrado",
-      "confianca": 19,
-      "origem": "CARD"
+      "status": "erro",
+      "erro": "HTTP 503"
     }
   ],
   "ranking": [
-    {
-      "loja": "Amazon",
-      "titulo": "Sony PlayStation 5 Slim Digital Console 825GB - International Version 14 jan. 2026 5,0 5,0 de 5 estrelas (9) Mais de 200 compras no mês passado PlayStation 5 Ver opções Nenhuma opção de compra em destaque R$ 4.599,90 (2 ofertas de novos)",
-      "preco": 4599.9,
-      "url": "https://www.amazon.com.br/s?k=PS5%20Slim%20Digital%201TB",
-      "status": "encontrado",
-      "confianca": 19,
-      "origem": "CARD"
-    },
     {
       "loja": "KaBuM!",
       "titulo": "Console Sony PlayStation 5 Edição Digital Slim, SSD 825GB, Controle DualSense, Astro's Playroom, Branco - CFI 2114B",
