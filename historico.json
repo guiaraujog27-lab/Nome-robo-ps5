@@ -1,13 +1,5 @@
 [
   {
-    "data": "05/09/2026 04:12:30",
-    "timestamp": "2026-09-05T04:12:30.210941",
-    "produto": "PS5 Slim Digital 1TB",
-    "preco": 5999.0,
-    "loja": "KaBuM!",
-    "url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB"
-  },
-  {
     "data": "05/09/2026 06:15:40",
     "timestamp": "2026-09-05T06:15:40.561496",
     "produto": "PS5 Slim Digital 1TB",
@@ -3994,6 +3986,14 @@
   {
     "data": "25/11/2026 01:59:18",
     "timestamp": "2026-11-25T01:59:18.267206",
+    "produto": "PS5 Slim Digital 1TB",
+    "preco": 4699.0,
+    "loja": "KaBuM!",
+    "url": "https://www.kabum.com.br/busca/PS5%20Slim%20Digital%201TB"
+  },
+  {
+    "data": "25/11/2026 11:08:26",
+    "timestamp": "2026-11-25T11:08:26.793031",
     "produto": "PS5 Slim Digital 1TB",
     "preco": 4699.0,
     "loja": "KaBuM!",
